@@ -1,0 +1,88 @@
+.event-calendar-container{
+    background-color: white;
+    border-radius: 10px;
+    padding: 16px;
+
+    .react-calendar{
+        border: none;
+
+        .react-calendar__navigation__label{
+
+            span{
+                font-weight: 600;
+                font-size: 17px;
+        
+            }
+        }
+        
+        .react-calendar__navigation button{
+            font-size: 20px;
+            border-radius: 50%;
+        }
+    }
+
+    .title-icon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        margin-top: 25px;
+
+        h1.title{
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .icon{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .events-info{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .event-item{
+            padding: 20px;
+            border: 2px solid #f3f4f6;
+            border-radius: 10px;
+            border-top-width: 4px;
+
+            &:nth-child(odd){
+                border-top-color: orange;
+            }
+
+            &:nth-child(even){
+                border-top-color: #040558;
+            }
+
+            .top{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-weight: 600;
+                    color: #4b5563;
+                    font-size: 15px;
+                }
+
+                span{
+                    font-size: 12px;
+                    color: #d1d5db;
+                }
+            }
+
+            p{
+                margin-top: 8px;
+                color: #9ca3af;
+                font-size: 14px;
+            }
+    
+        }
+
+    }
+
+}

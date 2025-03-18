@@ -1,0 +1,121 @@
+.navbar-container{
+    display: flex;
+    align-items: center;justify-content: space-between; padding: 16px;
+
+    .search-bar{
+        display: none;
+        align-items: center;gap: 8px;
+        font-size: 12px;
+        padding: 0 8px;
+        border-radius: 20px;
+        border: 2px solid #d1d5db;
+
+        .icon{
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+        }
+
+        input{
+            width: 200px;
+            background-color: transparent;
+            outline: none;
+            padding: 8px 8px;
+            border: none;
+            font-size: 12px;
+        }
+    }
+
+    .messages-notifications-user{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 24px;
+        justify-content: flex-end;
+
+        .message-container{
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 50%;
+
+            .icon{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .announcement-container{
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+
+            .icon{
+                width: 23px;
+                height: 23px;
+            }
+
+            .count{
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                height: 20px;width: 20px;
+                background-color: orange;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                font-size: 12px;
+                color: white;
+                font-weight: 500;
+            }
+        }
+
+        .user-info{
+            display: flex;
+            flex-flow: column;
+
+            .name{
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .role{
+                font-size: 10px;
+                opacity: 0.6;
+                color: black;
+                text-align: right;
+            }
+        }
+
+        .image-profile-container{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            .image{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    .navbar-container{
+    
+        .search-bar{
+            display: flex;
+        }
+    }
+    
+}

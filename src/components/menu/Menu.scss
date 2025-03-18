@@ -1,0 +1,112 @@
+.menu-container{
+    width: 14%;
+    padding: 16px;
+
+    .sub-menu-container{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 16px;
+
+
+        .link-container{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .link{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 5px 6px;
+                text-decoration: none;
+                border-radius: 6px;
+
+                .link-label{
+                    font-size: 16px;
+                    color: #6a7282;
+                    display: none;
+                }
+
+                .menu-icon{
+                    width: 20px;
+                    height: 20px;
+                    color: #6a7282;
+                }
+            }
+        }
+    
+    }
+}
+
+
+
+@media screen and (min-width: 768px){
+    .menu-container{
+        width: 8%;
+        .sub-menu-container{    
+    
+            .link-container{
+    
+                .link{
+                    display: flex;
+                    align-items: center;
+        
+                }
+            }
+        
+        }
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+    .menu-container{
+        width: 16%;
+        .sub-menu-container{    
+    
+            .link-container{
+    
+                .link{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+    
+                    .link-label{
+                        font-size: 16px;
+                        color: #6A7282;
+                        display: block;
+                    }
+    
+                }
+            }
+        
+        }
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .menu-container{
+        width: 14%;
+        .sub-menu-container{    
+    
+            .link-container{
+    
+                .link{
+                    // display: flex;
+                    // align-items: center;
+                    // justify-content: flex-start;
+    
+                    // .link-label{
+                    //     font-size: 16px;
+                    //     color: #6A7282;
+                    //     display: block;
+                    // }
+    
+                }
+            }
+        
+        }
+    }
+}
