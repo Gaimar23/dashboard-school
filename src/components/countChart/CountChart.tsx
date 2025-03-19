@@ -14,12 +14,12 @@ const CountChart = () => {
     {
       name: "Girls",
       count: 53,
-      fill: "#FAE27C",
+      fill: "orange",
     },
     {
       name: "Boys",
       count: 53,
-      fill: "#C3EBFA",
+      fill: "#040558",
     },
   ];
 

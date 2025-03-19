@@ -1,18 +1,8 @@
-import { AiFillHome } from "react-icons/ai";
-import { BsFillPeopleFill } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
 import { FaPeopleArrows } from "react-icons/fa6";
-import { PiProjectorScreenFill } from "react-icons/pi";
 import { MdSubject } from "react-icons/md";
-import { MdPlayLesson } from "react-icons/md";
-import { PiExamFill } from "react-icons/pi";
-import { MdAssignment } from "react-icons/md";
-import { FaListAlt } from "react-icons/fa";
-import { PiUserListFill } from "react-icons/pi";
 import { BiCategory } from "react-icons/bi";
 import { BiConversation } from "react-icons/bi";
-import { HiSpeakerWave } from "react-icons/hi2";
-import { MdSettings } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { GoHome } from "react-icons/go";
@@ -28,6 +18,7 @@ import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { Link, NavLink } from "react-router-dom";
 import { role } from "../../data/data";
 import "./Menu.scss";
+import logo from "../../assets/images/logo_.jpg";
 
 const menuItems = [
   {
@@ -148,11 +139,11 @@ const Menu = () => {
   return (
     <div className="menu-container">
       <div>
-        <Link to="/">
-          <div className="image">
-            <img src="" alt="" />
+        <Link to="/" className="link-logo">
+          <div className="logo">
+            <img src={logo} alt="" />
           </div>
-          <span>School Dev</span>
+          <span>School</span>
         </Link>
       </div>
       <div className="sub-menu-container">

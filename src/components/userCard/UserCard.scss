@@ -6,9 +6,11 @@
 
     &:nth-child(odd){
        background-color: #040558; 
+       color: orange;
     }
     &:nth-child(even){
        background-color: orange; 
+       color: #040558;
     }
 
     .date-icon{
@@ -35,6 +37,7 @@
     h2{
         font-size: 14px;
         font-weight: 500;
-        color: gray;
+        color: rgb(255, 255, 255);
+        opacity: 0.7;
     }
 }

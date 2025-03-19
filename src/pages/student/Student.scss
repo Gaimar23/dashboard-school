@@ -1,0 +1,100 @@
+.student-container{
+    min-height: 100vh;
+    display: flex;
+
+    .right{
+        width: 86%;
+        overflow: scroll;
+        display: flex;flex-flow: column;
+        background-color: #F7F8FA;
+
+        .student{
+            padding: 16px;
+            display: flex;
+            flex-flow: column;
+            gap: 16px;
+            margin-top: -5px;
+
+            .left{
+                width: 100%;
+
+                .schedule-container{
+                    height: 100%;
+                    padding: 16px;
+                    background-color: white;
+                    border-radius: 10px;
+
+                    h1{
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .right{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .student-container{
+    
+        .right{
+            width: 92%;
+
+            // .student{
+            //     flex-flow: row;
+            // }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1024px){
+    .student-container{
+    
+        .right{
+            width: 84%;
+
+            .student{
+
+                // .left{
+                //     width: calc(2/3 * 100%);
+                // }
+                
+                // .right{
+                //     width: calc(1/3 * 100%);
+                // }
+            }
+        }
+    }
+    
+}
+@media screen and (min-width: 1280px){
+    .student-container{
+    
+        .right{
+            width: 86%;
+
+            .student{
+                flex-flow: row;
+
+                .left{
+                    width: calc(2/3 * 100%);
+                }
+                
+                .right{
+                    width: calc(1/3 * 100%);
+                }
+            }
+
+        }
+    }
+    
+}

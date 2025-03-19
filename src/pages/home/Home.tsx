@@ -1,3 +1,4 @@
+import Announcements from "../../components/announcements/Announcements";
 import AttendanceChart from "../../components/attendanceChart/AttendanceChart";
 import CountChart from "../../components/countChart/CountChart";
 import EventCalendar from "../../components/eventCalendar/EventCalendar";
@@ -35,6 +36,7 @@ const Home = () => {
           </div>
           <div className="right">
             <EventCalendar />
+            <Announcements />
           </div>
         </div>
       </div>

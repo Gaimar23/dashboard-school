@@ -13,7 +13,7 @@ const UserCard = ({ type }: { type: string }) => {
         />
       </div>
       <h1>1,234</h1>
-      <h2>{type}s</h2>
+      <h2>{type}</h2>
     </div>
   );
 };
