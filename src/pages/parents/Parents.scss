@@ -1,5 +1,4 @@
-.list-teachers-container{
-
+.list-parents-container{
     min-height: 100vh;
     display: flex;
 
@@ -9,7 +8,7 @@
         display: flex;flex-flow: column;
         background-color: #F7F8FA;
 
-        .list-teachers{
+        .list-parents{
             padding: 16px;
             margin: 16px;
             margin-top: -5px;
@@ -79,7 +78,7 @@
                     background-color: #f8fafc;
                 }
 
-                .image-name-email{
+                .info-name-email{
                     display: flex;
                     align-items: center;
                     gap: 16px;
@@ -113,19 +112,18 @@
                     display: none;
                 }
             }
+
         }
     }
-
 }
 
-
 @media screen and (min-width: 768px){
-    .list-teachers-container{
+    .list-parents-container{
     
         .right{
             width: 92%;
 
-            .list-teachers{
+            .list-parents{
                 
                 .sub-container{
     
@@ -145,23 +143,11 @@
 
                 .row-data{
         
-                    .image-name-email{
-    
-                        img{
-                            // width: 40px;
-                            // height: 40px;
-                            // object-fit: cover;
-                            // border-radius: 50%;
-                            display: none;
-                        }
-                    }
-
                     .inner-data{
                         display: table-cell;
                     }
     
                 }
-    
     
             }
         }
@@ -170,12 +156,12 @@
 }
 
 @media screen and (min-width: 1024px){
-    .list-teachers-container{
+    .list-parents-container{
     
         .right{
             width: 84%;
 
-            .list-teachers{
+            .list-parents{
 
                 .table-data-second{
                     display: table-cell;
@@ -187,25 +173,10 @@
     
 }
 @media screen and (min-width: 1280px){
-    .list-teachers-container{
+    .list-parents-container{
     
         .right{
             width: 86%;
-
-            .list-teachers{
-
-                .row-data{
-        
-                    .image-name-email{
-    
-                        img{
-                            display: block;
-                        }
-                    }
-                }
-
-            }
-
         }
     }
     

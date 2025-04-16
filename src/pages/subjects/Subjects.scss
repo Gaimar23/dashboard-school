@@ -1,5 +1,4 @@
-.list-teachers-container{
-
+.list-subjects-container{
     min-height: 100vh;
     display: flex;
 
@@ -9,7 +8,7 @@
         display: flex;flex-flow: column;
         background-color: #F7F8FA;
 
-        .list-teachers{
+        .list-subjects{
             padding: 16px;
             margin: 16px;
             margin-top: -5px;
@@ -79,53 +78,41 @@
                     background-color: #f8fafc;
                 }
 
-                .image-name-email{
+                .icon-name{
                     display: flex;
                     align-items: center;
                     gap: 16px;
                     padding: 16px;
 
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        object-fit: cover;
-                        border-radius: 50%;
+                    h3{
+                        font-size: 14px;
+                        font-weight: 600;
                     }
 
-                    .name-email{
-                        display: flex;
-                        flex-direction: column;
-
-                        h3{
-                            font-size: 14px;
-                            font-weight: 600;
-                        }
-
-                        p{
-                            font-size: 12px;
-                            color: black;
-                            opacity: 0.7;
-                        }
+                    .icon{
+                        width: 20px;
+                        height: 20px;
+                        color: #6a7282;
                     }
+
                 }
 
                 .inner-data{
                     display: none;
                 }
             }
+
         }
     }
-
 }
 
-
 @media screen and (min-width: 768px){
-    .list-teachers-container{
+    .list-subjects-container{
     
         .right{
             width: 92%;
 
-            .list-teachers{
+            .list-subjects{
                 
                 .sub-container{
     
@@ -145,17 +132,6 @@
 
                 .row-data{
         
-                    .image-name-email{
-    
-                        img{
-                            // width: 40px;
-                            // height: 40px;
-                            // object-fit: cover;
-                            // border-radius: 50%;
-                            display: none;
-                        }
-                    }
-
                     .inner-data{
                         display: table-cell;
                     }
@@ -170,12 +146,12 @@
 }
 
 @media screen and (min-width: 1024px){
-    .list-teachers-container{
+    .list-subjects-container{
     
         .right{
             width: 84%;
 
-            .list-teachers{
+            .list-subjects{
 
                 .table-data-second{
                     display: table-cell;
@@ -187,25 +163,10 @@
     
 }
 @media screen and (min-width: 1280px){
-    .list-teachers-container{
+    .list-subjects-container{
     
         .right{
             width: 86%;
-
-            .list-teachers{
-
-                .row-data{
-        
-                    .image-name-email{
-    
-                        img{
-                            display: block;
-                        }
-                    }
-                }
-
-            }
-
         }
     }
     

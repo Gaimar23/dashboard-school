@@ -1,5 +1,4 @@
-.list-teachers-container{
-
+.list-students-container{
     min-height: 100vh;
     display: flex;
 
@@ -9,7 +8,7 @@
         display: flex;flex-flow: column;
         background-color: #F7F8FA;
 
-        .list-teachers{
+        .list-students{
             padding: 16px;
             margin: 16px;
             margin-top: -5px;
@@ -79,7 +78,7 @@
                     background-color: #f8fafc;
                 }
 
-                .image-name-email{
+                .image-name-class{
                     display: flex;
                     align-items: center;
                     gap: 16px;
@@ -92,7 +91,7 @@
                         border-radius: 50%;
                     }
 
-                    .name-email{
+                    .name-class{
                         display: flex;
                         flex-direction: column;
 
@@ -113,19 +112,19 @@
                     display: none;
                 }
             }
+
         }
     }
-
 }
 
 
 @media screen and (min-width: 768px){
-    .list-teachers-container{
+    .list-students-container{
     
         .right{
             width: 92%;
 
-            .list-teachers{
+            .list-students{
                 
                 .sub-container{
     
@@ -145,13 +144,9 @@
 
                 .row-data{
         
-                    .image-name-email{
+                    .image-name-class{
     
                         img{
-                            // width: 40px;
-                            // height: 40px;
-                            // object-fit: cover;
-                            // border-radius: 50%;
                             display: none;
                         }
                     }
@@ -170,12 +165,12 @@
 }
 
 @media screen and (min-width: 1024px){
-    .list-teachers-container{
+    .list-students-container{
     
         .right{
             width: 84%;
 
-            .list-teachers{
+            .list-students{
 
                 .table-data-second{
                     display: table-cell;
@@ -187,16 +182,16 @@
     
 }
 @media screen and (min-width: 1280px){
-    .list-teachers-container{
+    .list-students-container{
     
         .right{
             width: 86%;
 
-            .list-teachers{
+            .list-students{
 
                 .row-data{
         
-                    .image-name-email{
+                    .image-name-class{
     
                         img{
                             display: block;

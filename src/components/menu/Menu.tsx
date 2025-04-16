@@ -27,7 +27,7 @@ const menuItems = [
       {
         icon: <GoHome className="menu-icon" />,
         label: "Home",
-        href: "/",
+        href: "/home",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
@@ -147,13 +147,13 @@ const Menu = () => {
         </Link>
       </div>
       <div className="sub-menu-container">
-        {menuItems.map((i) => {
+        {menuItems.map((i,index1) => {
           return (
-            <div className="link-container">
-              {i.items.map((item) => {
+            <div className="link-container" key={index1}>
+              {i.items.map((item,index2) => {
                 if (item.visible.includes(role)) {
                   return (
-                    <NavLink to={item.href} className={"link"}>
+                    <NavLink to={item.href} className={"link"} key={index2}>
                       {item.icon}
                       <span className="link-label">{item.label}</span>
                     </NavLink>
