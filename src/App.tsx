@@ -7,6 +7,7 @@ import Students from "./pages/students/Students";
 import Parents from "./pages/parents/Parents";
 import Subjects from "./pages/subjects/Subjects";
 import Classes from "./pages/classes/Classes";
+import SingleTeacher from "./pages/singleTeacher/SingleTeacher";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/student" element={<Student />} />
         <Route path="/list/teachers" element={<Teachers />} />
+        <Route path="/list/teachers/:teacherId" element={<SingleTeacher />} />
         <Route path="/list/students" element={<Students />} />
         <Route path="/list/parents" element={<Parents />} />
         <Route path="/list/subjects" element={<Subjects />} />

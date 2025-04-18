@@ -79,7 +79,7 @@ const Students = () => {
         </td>
         <td>
           <div>
-            <Link to={`/list/teachers/${item.id}`}>
+            <Link to={`/list/students/${item.id}`}>
               <button
                 style={{
                   display: "flex",

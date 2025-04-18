@@ -1,0 +1,63 @@
+.big-calendar-container{
+
+    .date-selector-container{
+        text-align: center;
+        margin-top: 15px;
+
+        .selected-date{
+            border-radius: 100%;
+            padding: 10px 15px; 
+            cursor: pointer;   
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                background-color: gray;
+            }
+        }
+    }
+
+    .big-calendar-table{
+        width: 100%;
+        margin-top: 16px;
+        border-collapse: collapse;
+
+        tbody{
+
+            .row-data{
+                border: 1px solid #e5e7eb;
+                background-color: #f8fafc;
+                
+                // &:nth-child(even){
+                //     background-color: #f8fafc;
+                // }
+
+                .time{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    // gap: 8px;
+                    padding: 4px 10px;
+                    border-right: 1px solid #e5e7eb;
+                    height: 74px;
+
+
+                    span{
+                        font-size: 12px;
+                    }
+
+                    .icon{
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+
+                .to-do{
+                    text-align: left;
+                    font-size: 12px;
+                    padding: 4px 10px;
+                }
+            }
+        }
+
+    }
+}

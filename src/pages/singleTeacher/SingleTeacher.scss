@@ -1,0 +1,420 @@
+.single-teacher-container{
+    min-height: 100vh;
+    display: flex;
+
+    .right{
+        width: 86%;
+        // overflow: scroll;
+        display: flex;
+        flex-flow: column;
+        background-color: #F7F8FA;
+
+        .single-teacher{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+        
+            .left{
+                width: 100%;
+        
+                .top{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+        
+                    .user-info-card{
+                        padding: 24px 16px;
+                        border-radius: 6px;
+                        flex: 1 1 0%;
+                        display: flex;
+                        gap: 16px;
+                        // 
+                        background-color: white;
+                        border-radius: 6px;
+        
+                        .image-container{
+                            // width: calc(100% / 3);
+        
+                            img{
+                                width: 144px;
+                                height: 144px;
+                                object-fit: cover;
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .name-desc{
+                            width: calc(100% * 2 / 3);
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            gap: 16px;
+
+                            h1{
+                                font-size: 20px;
+                                font-weight: 600;
+                                opacity: 0.7;
+                            }
+
+                            p{
+                                font-size: 14px;
+                                color: #6b7280;
+                            }
+
+                            .other-info{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                gap: 4px;
+                                flex-wrap: wrap;
+                                font-size: 12px;
+                                font-weight: 500;
+
+                                .line{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                    width: 100%;
+
+                                    .icon{
+                                        width: 14px;
+                                        height: 14px;
+                                        opacity: 0.5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .small-card-container{
+                        display: flex;
+                        justify-content: center;
+                        gap: 16px;
+                        flex-wrap: wrap;
+                        flex: 1;
+
+                        .card{
+                            background-color: white;
+                            padding: 16px;
+                            border-radius: 6px;
+                            display: flex;
+                            flex-direction: column;
+                            // gap: 16px;
+                            width: 100%;
+
+                            &:nth-child(1){
+                                background-color: #040558;
+                                h1{
+                                    color: orange;
+                                }
+                            }
+
+                            &:nth-child(2){
+                                background-color: orange;
+                                h1{
+                                    color: #040558;
+                                }
+                            }
+
+                            &:nth-child(3){
+                                background-color: orange;
+                                h1{
+                                    color: #040558;
+                                }
+                            }
+
+                            &:nth-child(4){
+                                background-color: #040558;
+                                h1{
+                                    color: orange;
+                                }
+                            }
+
+                            .icons{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                .icon{
+                                    width: 20px;
+                                    height: 20px;
+                                    color: white;
+                                }
+                            }
+
+                            h1{
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+
+                            span{
+                                font-size: 14px;
+                                color: #ffffff;
+                                opacity: 0.7;
+                                // color: #9ca3af;
+                            }
+                        }
+                    }
+                }
+
+                .bottom{
+                    margin-top: 16px;
+                    background-color: white;
+                    padding: 16px;
+                    border-radius: 6px;
+                    height: 800px;
+
+                    h1{
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .right{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                .courses-classes-container{
+                    background-color: white;
+                    padding: 17px;
+                    border-radius: 6px;
+                    min-height: 201px;
+                    
+
+                    .title{
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+
+                    .table-container{
+                        width: 100%;
+                        margin-top: 16px;
+                        border-collapse: collapse;
+
+                        .table-row{
+                            text-align: left;
+                            font-size: 14px;
+                            color: gray;
+                        }
+
+                        tbody{
+                            .row-data{
+                                border: 1px solid #e5e7eb;
+                                border-left: none;
+                                border-right: none;
+                                
+                                &:nth-child(even){
+                                    background-color: #f8fafc;
+                                }
+                
+                                .icon-subject{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+                                    padding: 3px 0;
+
+
+                                    .subject{
+                                        font-size: 12px;
+                                        padding: 3px 0;
+                                    }
+
+                                    .icon{
+                                        width: 10px;
+                                        height: 10px;
+                                    }
+                                }
+
+                                .related-classes{
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .announcements-subcontainer{
+                    margin-top: 0;
+                }
+            }
+        }
+        
+    }
+}
+
+
+@media screen and (max-width: 400px){
+    .single-teacher-container{
+
+        .right{
+            .single-teacher{
+                .left{
+                    .top{
+                        .user-info-card{
+
+                            .image-container{
+                                img{
+                                    width: 120px;
+                                    height: 120px;
+                                }
+    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    .single-teacher-container{
+
+        .right{
+
+            .single-teacher{
+
+                .left{
+        
+                    .top{
+                        
+                        .user-info-card{
+
+                            .name-desc{
+
+                                .other-info{
+
+                                    .line{
+                                        width: calc(100% / 3);
+                                    }
+                                }
+                            }
+                        }
+
+                        .small-card-container{
+
+                            .card{
+                                width: 48%;
+                            }
+                        }
+                    }
+                }
+            }
+        
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1024px){
+    .single-teacher-container{
+
+        .right{
+
+            .single-teacher{
+
+                .left{
+        
+                    .top{
+                        flex-direction: row;
+
+                        .user-info-card{
+
+                            .name-desc{
+
+                                .other-info{
+
+                                    .line{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1280px){
+    .single-teacher-container{
+
+        .right{
+
+            .single-teacher{
+                flex-direction: row;
+
+                .left{
+                    width: calc(100% * 2 / 3);
+
+                    .top{
+
+                        .small-card-container{
+
+                            .card{
+                                width: 45%;
+                            }
+                        }
+
+                    }
+                }
+
+                .right{
+                    width: calc(100% / 3);
+                }
+            }
+        
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1536px){
+    .single-teacher-container{
+
+        .right{
+
+            .single-teacher{
+
+                .left{
+        
+                    .top{
+                        
+                        .user-info-card{
+
+                            .name-desc{
+
+                                .other-info{
+
+                                    .line{
+                                        width: calc(100% / 3);
+                                    }
+                                }
+                            }
+                        }
+
+                        .small-card-container{
+
+                            .card{
+                                width: 48%;
+                            }
+                        }
+
+                    }
+                }
+            }
+        
+        }
+    }
+    
+}

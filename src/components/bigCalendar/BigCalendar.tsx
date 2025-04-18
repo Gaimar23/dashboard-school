@@ -1,32 +1,59 @@
 import "./BigCalendar.scss";
-import { Calendar, momentLocalizer, View, Views } from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import { calendarEvents } from "../../data/data";
-import { useState } from "react";
-
-const localizer = momentLocalizer(moment);
+// import moment from "moment";
+// import { calendarEvents } from "../../data/data";
+// import { useState } from "react";
 
 const BigCalendar = () => {
-  const [view, setView] = useState<View>(Views.WORK_WEEK);
+  // const handleOnchangeView = () => {
 
-  const handleOnchangeView = (selectedView: View) => {
-    setView(selectedView);
-  };
+  // };
 
   return (
-    <Calendar
-      localizer={localizer}
-      events={calendarEvents}
-      startAccessor={"start"}
-      endAccessor={"end"}
-      views={["work_week", "day"]}
-      view={view}
-      style={{ height: "98%" }}
-      onView={handleOnchangeView}
-      min={new Date(2025, 1, 0, 8, 0, 0)}
-      max={new Date(2025, 1, 0, 17, 0, 0)}
-    />
+    <div className="big-calendar-container">
+      <div className="date-selector-container">
+        <span className="selected-date">{new Date().toLocaleDateString()}</span>
+      </div>
+      <table className="big-calendar-table">
+        <tbody>
+          <tr className="row-data">
+            <td className="time">08:00</td>
+            <td className="to-do">Tache à gérer Tache à gérer Tache</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">09:00</td>
+            <td className="to-do">Tache 2 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">10:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">11:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">12:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">13:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">14:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">15:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+          <tr className="row-data">
+            <td className="time">16:00</td>
+            <td className="to-do">Tache 3 à gérer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
