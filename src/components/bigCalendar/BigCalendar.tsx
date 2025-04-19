@@ -1,17 +1,26 @@
+import React from "react";
 import "./BigCalendar.scss";
 // import moment from "moment";
 // import { calendarEvents } from "../../data/data";
 // import { useState } from "react";
 
-const BigCalendar = () => {
-  // const handleOnchangeView = () => {
+type SelectedDate = Date | null;
+type Value = SelectedDate | [SelectedDate, SelectedDate];
+type DisplayDate = {
+  handleDisplayCalendar: () => void;
+  date_: Value;
+};
 
-  // };
-
+const BigCalendar: React.FC<DisplayDate> = ({
+  handleDisplayCalendar,
+  date_,
+}) => {
   return (
     <div className="big-calendar-container">
       <div className="date-selector-container">
-        <span className="selected-date">{new Date().toLocaleDateString()}</span>
+        <span className="selected-date" onClick={handleDisplayCalendar}>
+          {date_?.toLocaleString().substring(0, 10)}
+        </span>
       </div>
       <table className="big-calendar-table">
         <tbody>

@@ -170,6 +170,34 @@
                         font-size: 18px;
                         font-weight: 600;
                     }
+
+                    .our-calendar{
+                        position: absolute;
+                        z-index: 100;
+                        top: -250px;
+                        left: 50%;
+                        transform: translateX(-50%);
+
+                        .react-calendar{
+                            border: none;
+                            place-self: center;
+
+                            .react-calendar__navigation__label{
+
+                                span{
+                                    font-weight: 600;
+                                    font-size: 17px;
+                            
+                                }
+                            }
+                            
+                            .react-calendar__navigation button{
+                                font-size: 20px;
+                                border-radius: 50%;
+                            }
+                    
+                        }
+                    }
                 }
             }
 
@@ -209,7 +237,8 @@
                                 border-right: none;
                                 
                                 &:nth-child(even){
-                                    background-color: #f8fafc;
+                                    background-color: #F7F8FA;
+                                    // background-color: #f8fafc;
                                 }
                 
                                 .icon-subject{

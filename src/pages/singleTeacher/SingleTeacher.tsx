@@ -15,11 +15,13 @@ import Performance from "../../components/performance/Performance";
 import Announcements from "../../components/announcements/Announcements";
 import BigCalendar from "../../components/bigCalendar/BigCalendar";
 import { BsCalendar3 } from "react-icons/bs";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
-type TeacherData = {
-  subject: string;
-  classes: string[];
-};
+// type TeacherData = {
+//   subject: string;
+//   classes: string[];
+// };
 
 const columns = [
   {
@@ -33,10 +35,15 @@ const columns = [
   },
 ];
 
+type SelectedDate = Date | null;
+type Value = SelectedDate | [SelectedDate, SelectedDate];
+
 const SingleTeacher = () => {
   const { teacherId } = useParams();
   const [teacher, setTeacher] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [date_, handleDateChange] = useState<Value>(new Date());
 
   useEffect(() => {
     // async function fetchTeacher() {
@@ -52,6 +59,18 @@ const SingleTeacher = () => {
     // }
     // fetchTeacher()
   }, [teacherId]);
+
+  useEffect(() => {
+    console.log("date_:", date_?.toLocaleString());
+    showCalendar && setShowCalendar((prev) => !prev);
+  }, [date_]);
+
+  const handleDisplayCalendar = () => {
+    setShowCalendar((prev) => !prev);
+  };
+
+  // const updateDate = () => {};
+
   return (
     <div className="single-teacher-container">
       <Menu />
@@ -140,12 +159,21 @@ const SingleTeacher = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
+                  position: "relative",
                 }}
               >
                 <h1>Teacher's Schedule</h1>
+                <div className="our-calendar" id="our-calendar">
+                  {showCalendar && (
+                    <Calendar onChange={handleDateChange} value={date_} />
+                  )}
+                </div>
                 <BsCalendar3 style={{ width: "20px", height: "20px" }} />
               </div>
-              <BigCalendar />
+              <BigCalendar
+                handleDisplayCalendar={handleDisplayCalendar}
+                date_={date_}
+              />
             </div>
           </div>
           <div className="right">
