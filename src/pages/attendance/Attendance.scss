@@ -1,0 +1,46 @@
+.list-attendance-container{
+    min-height: 100vh;
+    display: flex;
+
+    .right{
+        width: 86%;
+        // overflow: scroll;
+        display: flex;flex-flow: column;
+        background-color: #F7F8FA;
+
+        .list-attendance{
+            padding: 16px;
+            margin: 16px;
+            margin-top: -5px;
+            background-color: white;
+            border-radius: 10px;
+            flex: 1;
+
+            .sub-container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-size: 18px;
+                    font-weight: 600;
+                    display: none;
+                }
+
+                .up{
+
+                }
+
+            }
+
+            .table-data{
+                display: none;
+            }
+
+            .table-data-second{
+                display: none;
+            }
+
+        }
+    }
+}

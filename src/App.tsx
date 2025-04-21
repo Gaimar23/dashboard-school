@@ -11,6 +11,7 @@ import SingleTeacher from "./pages/singleTeacher/SingleTeacher";
 import Exams from "./pages/exams/Exams";
 import Assignments from "./pages/assignments/Assignments";
 import Results from "./pages/results/Results";
+import Attendance from "./pages/attendance/Attendance";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/list/exams" element={<Exams />} />
         <Route path="/list/assignments" element={<Assignments />} />
         <Route path="/list/results" element={<Results />} />
+        <Route path="/list/attendance" element={<Attendance />} />
       </Routes>
     </>
   );

@@ -1,11 +1,11 @@
 import Menu from "../../components/menu/Menu";
 import Navbar from "../../components/navbar/Navbar";
 import "./Results.scss";
-import { MdImportExport } from "react-icons/md";
 import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
+import { CgNotes } from "react-icons/cg";
 
 type Result = {
   _id: string;
@@ -119,6 +119,28 @@ const allData = [
     score: 10,
     remarks: 20,
   },
+  {
+    _id: "006",
+    tenant_id: "Aron293709°0",
+    academic_year: "2025/2024",
+    term: "2e Séquence",
+    class: "Tle",
+    subject: "Comptabilité",
+    student: "Kengne Stéphanie",
+    score: 14,
+    remarks: 20,
+  },
+  {
+    _id: "007",
+    tenant_id: "Aron293709°0",
+    academic_year: "2025/2024",
+    term: "1er Séquence",
+    class: "Tle",
+    subject: "Comptabilité",
+    student: "Bonano Rafael",
+    score: 13,
+    remarks: 20,
+  },
 ];
 
 const Results = () => {
@@ -129,7 +151,7 @@ const Results = () => {
           className=""
           style={{ display: "flex", alignItems: "center", gap: "0px" }}
         >
-          <MdImportExport style={{ width: "20px", height: "20px" }} />
+          <CgNotes style={{ width: "20px", height: "20px", opacity: "0.5" }} />
           <div className="subject-term">
             <h3>{item.subject}</h3>
             <p>{item.term}</p>
