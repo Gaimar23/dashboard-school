@@ -60,12 +60,12 @@ const menuItems = [
         href: "/list/classes",
         visible: ["admin", "teacher"],
       },
-      {
-        icon: <MdOutlinePlayLesson className="menu-icon" />,
-        label: "Lessons",
-        href: "/list/lessons",
-        visible: ["admin", "teacher"],
-      },
+      // {
+      //   icon: <MdOutlinePlayLesson className="menu-icon" />,
+      //   label: "Lessons",
+      //   href: "/list/lessons",
+      //   visible: ["admin", "teacher"],
+      // },
       {
         icon: <PiExam className="menu-icon" />,
         label: "Exams",
@@ -147,10 +147,10 @@ const Menu = () => {
         </Link>
       </div>
       <div className="sub-menu-container">
-        {menuItems.map((i,index1) => {
+        {menuItems.map((i, index1) => {
           return (
             <div className="link-container" key={index1}>
-              {i.items.map((item,index2) => {
+              {i.items.map((item, index2) => {
                 if (item.visible.includes(role)) {
                   return (
                     <NavLink to={item.href} className={"link"} key={index2}>

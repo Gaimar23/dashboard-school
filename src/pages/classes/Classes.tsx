@@ -125,7 +125,7 @@ const Classes = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={classesData} />
-          <Pagination />
+          <Pagination itemsLength={classesData.length} />
         </div>
       </div>
     </div>

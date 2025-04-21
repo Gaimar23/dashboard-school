@@ -40,8 +40,8 @@ type Value = SelectedDate | [SelectedDate, SelectedDate];
 
 const SingleTeacher = () => {
   const { teacherId } = useParams();
-  const [teacher, setTeacher] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [teacher, setTeacher] = useState(null);
+  // const [loading, setLoading] = useState(true);
   const [showCalendar, setShowCalendar] = useState(false);
   const [date_, handleDateChange] = useState<Value>(new Date());
 

@@ -8,6 +8,9 @@ import Parents from "./pages/parents/Parents";
 import Subjects from "./pages/subjects/Subjects";
 import Classes from "./pages/classes/Classes";
 import SingleTeacher from "./pages/singleTeacher/SingleTeacher";
+import Exams from "./pages/exams/Exams";
+import Assignments from "./pages/assignments/Assignments";
+import Results from "./pages/results/Results";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/list/parents" element={<Parents />} />
         <Route path="/list/subjects" element={<Subjects />} />
         <Route path="/list/classes" element={<Classes />} />
+        <Route path="/list/exams" element={<Exams />} />
+        <Route path="/list/assignments" element={<Assignments />} />
+        <Route path="/list/results" element={<Results />} />
       </Routes>
     </>
   );
