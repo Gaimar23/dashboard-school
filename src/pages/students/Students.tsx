@@ -10,6 +10,8 @@ import { role, studentsData } from "../../data/data";
 import FormModal from "../../components/formModal/FormModal";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
+import { IoPersonAddSharp } from "react-icons/io5";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Student = {
   id: number;
@@ -78,7 +80,7 @@ const Students = () => {
           {item.address}
         </td>
         <td>
-          <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <Link to={`/list/students/${item.id}`}>
               <button
                 style={{
@@ -96,6 +98,22 @@ const Students = () => {
                 <SlEye style={{ width: "20px", height: "20px" }} />
               </button>
             </Link>
+            <button
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#040558",
+                border: "none",
+                cursor: "pointer",
+                color: "white",
+                borderRadius: "50%",
+                padding: "2px",
+              }}
+            >
+              <SlEye style={{ width: "20px", height: "20px" }} />
+            </button>
+
             {/* {role === "admin" && <FormModal />} */}
           </div>
         </td>
@@ -114,17 +132,17 @@ const Students = () => {
               <TableSearch />
               <div className="actions">
                 <button>
-                  <IoFilterOutline className="icon" />
+                  <IoPersonAddSharp className="icon" />
                 </button>
                 <button>
-                  <FaSortAmountDownAlt className="icon" />
+                  <FaArrowAltCircleDown className="icon" />
                 </button>
-                {role === "admin" && <FormModal />}
+                {/* {role === "admin" && <FormModal />} */}
               </div>
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={studentsData} />
-          <Pagination />
+          <Pagination itemsLength={studentsData.length} />
         </div>
       </div>
     </div>

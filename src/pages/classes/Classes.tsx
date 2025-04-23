@@ -3,11 +3,12 @@ import Navbar from "../../components/navbar/Navbar";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import "./Classes.scss";
 import { IoFilterOutline } from "react-icons/io5";
-import { FaSortAmountDownAlt } from "react-icons/fa";
 import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
 import { classesData } from "../../data/data";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Class = {
   id: string;
@@ -65,7 +66,7 @@ const Classes = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "20px",
+              gap: "10px",
             }}
           >
             <button
@@ -115,10 +116,10 @@ const Classes = () => {
               <TableSearch />
               <div className="actions">
                 <button>
-                  <IoFilterOutline className="icon" />
+                  <MdAddCircle className="icon" />
                 </button>
                 <button>
-                  <FaSortAmountDownAlt className="icon" />
+                  <FaArrowAltCircleDown className="icon" />
                 </button>
                 {/* {role === "admin" && <FormModal />} */}
               </div>

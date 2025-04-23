@@ -9,6 +9,8 @@ import { parentsData, role } from "../../data/data";
 // import FormModal from "../../components/formModal/FormModal";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
+import { IoPersonAddSharp } from "react-icons/io5";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Parent = {
   id: string;
@@ -37,7 +39,7 @@ const columns = [
   {
     header: "Address",
     accessor: "address",
-    className: "table-data-second",
+    className: "table-data",
   },
   {
     header: "Actions",
@@ -62,14 +64,16 @@ const Parents = () => {
           {item.phone}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {item.address}
+          {item.address.length > 20
+            ? item.address.substring(0, 20) + "..."
+            : item.address}
         </td>
         <td>
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "20px",
+              gap: "10px",
             }}
           >
             <button
@@ -119,17 +123,17 @@ const Parents = () => {
               <TableSearch />
               <div className="actions">
                 <button>
-                  <IoFilterOutline className="icon" />
+                  <IoPersonAddSharp className="icon" />
                 </button>
                 <button>
-                  <FaSortAmountDownAlt className="icon" />
+                  <FaArrowAltCircleDown className="icon" />
                 </button>
                 {/* {role === "admin" && <FormModal />} */}
               </div>
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={parentsData} />
-          <Pagination />
+          <Pagination itemsLength={parentsData.length} />
         </div>
       </div>
     </div>

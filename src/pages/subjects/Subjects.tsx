@@ -47,7 +47,7 @@ const Subjects = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "20px",
+              gap: "10px",
             }}
           >
             <button
@@ -107,7 +107,7 @@ const Subjects = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={subjectsData} />
-          <Pagination />
+          <Pagination itemsLength={subjectsData.length} />
         </div>
       </div>
     </div>

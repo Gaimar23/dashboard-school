@@ -5,6 +5,8 @@ import "./Assignments.scss";
 import { TiDocumentDelete } from "react-icons/ti";
 import { IoMdCloudDownload } from "react-icons/io";
 import Pagination from "../../components/pagination/Pagination";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type assignmentData = {
   _id: string;

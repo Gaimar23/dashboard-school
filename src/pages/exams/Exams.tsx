@@ -6,6 +6,7 @@ import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import { MdImportExport } from "react-icons/md";
 import Pagination from "../../components/pagination/Pagination";
+import { IoFilterOutline } from "react-icons/io5";
 
 type Exam = {
   _id: string;
@@ -144,10 +145,16 @@ const Exams = () => {
           className=""
           style={{ display: "flex", alignItems: "center", gap: "0px" }}
         >
-          <MdImportExport style={{ width: "20px", height: "20px" }} />
+          <MdImportExport
+            style={{ width: "20px", height: "20px", opacity: "0.5" }}
+          />
           <div className="subject-title">
             <h3>{item.subject}</h3>
-            <p>{item.title}</p>
+            <p>
+              {item.title.length > 22
+                ? item.title.substring(0, 22) + "..."
+                : item.title}
+            </p>
           </div>
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
@@ -218,16 +225,15 @@ const Exams = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
-                // color: "white",
-                // borderRadius: "50%",
-                // padding: "2px",
+                borderRadius: "50%",
+                padding: "2px",
               }}
             >
               <SlEye
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
             <button
@@ -235,16 +241,15 @@ const Exams = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
-                // color: "white",
-                // borderRadius: "50%",
-                // padding: "2px",
+                borderRadius: "50%",
+                padding: "2px",
               }}
             >
               <TiDocumentDelete
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
           </div>

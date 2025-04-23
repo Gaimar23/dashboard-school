@@ -91,12 +91,6 @@ const menuItems = [
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: <BiCategory className="menu-icon" />,
-        label: "Events",
-        href: "/list/events",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
-      {
         icon: <BiConversation className="menu-icon" />,
         label: "Messages",
         href: "/list/messages",
@@ -108,6 +102,12 @@ const menuItems = [
         href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
+      // {
+      //   icon: <BiCategory className="menu-icon" />,
+      //   label: "Events",
+      //   href: "/list/events",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
     ],
   },
   {

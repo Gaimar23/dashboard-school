@@ -4,6 +4,11 @@ import "./Attendance.scss";
 import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
+import TableSearch from "../../components/tableSearch/TableSearch";
+import { useState } from "react";
+import Pagination from "../../components/pagination/Pagination";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type TeacherAttendance = {
   _id: string;
@@ -100,65 +105,104 @@ const teachersData = [
     tenant_id: "ARON001",
     academic_year: "2025/2026",
     teacher: "Dora Razel",
-    date: "12/04/2025",
+    date: new Date(2025, 5, 15, 0, 0),
     status: "Present", //Present,Absent,Late
-    check_in_time: "12/04/2025",
-    check_out_time: "12/04/2025",
+    check_in_time: new Date(2025, 5, 15, 8, 30),
+    check_out_time: new Date(2025, 5, 15, 11, 30),
     remarks: "good",
     recorded_by: "john",
-    created_at: "12/04/2025",
+    created_at: new Date(2025, 5, 15, 0, 0),
   },
   {
     _id: "002",
     tenant_id: "ARON001",
     academic_year: "2025/2026",
     teacher: "MAna Larol",
-    date: "12/04/2025",
+    date: new Date(2025, 5, 15, 0, 0),
     status: "Absent", //Present,Absent,Late
-    check_in_time: "12/04/2025",
-    check_out_time: "12/04/2025",
+    check_in_time: new Date(2025, 5, 15, 12, 0),
+    check_out_time: new Date(2025, 5, 15, 15, 0),
     remarks: "good",
     recorded_by: "john",
-    created_at: "12/04/2025",
+    created_at: new Date(2025, 5, 15, 0, 0),
   },
   {
     _id: "003",
     tenant_id: "ARON001",
     academic_year: "2025/2026",
     teacher: "Dora Razel",
-    date: "12/04/2025",
+    date: new Date(2025, 5, 15, 0, 0),
     status: "Present", //Present,Absent,Late
-    check_in_time: "12/04/2025",
-    check_out_time: "12/04/2025",
+    check_in_time: new Date(2025, 5, 15, 0, 0),
+    check_out_time: new Date(2025, 5, 15, 0, 0),
     remarks: "good",
     recorded_by: "john",
-    created_at: "12/04/2025",
+    created_at: new Date(2025, 5, 15, 0, 0),
+  },
+];
+
+const studentsData = [
+  {
+    _id: "001",
+    tenant_id: "ARON001",
+    academic_year: "2025/2026",
+    student: "Dora Razel",
+    class: "Tle",
+    date: new Date(2025, 5, 15, 0, 0),
+    status: "Present", //Present,Absent,Late
+    remarks: "good",
+    recorded_by: "john",
+    created_at: new Date(2025, 5, 15, 0, 0),
+  },
+  {
+    _id: "002",
+    tenant_id: "ARON001",
+    academic_year: "2025/2026",
+    student: "MAna Larol",
+    class: "Tle",
+    date: new Date(2025, 5, 15, 0, 0),
+    status: "Absent", //Present,Absent,Late
+    remarks: "good",
+    recorded_by: "john",
+    created_at: new Date(2025, 5, 15, 0, 0),
+  },
+  {
+    _id: "003",
+    tenant_id: "ARON001",
+    academic_year: "2025/2026",
+    student: "Dora Razel",
+    class: "4E",
+    date: new Date(2025, 5, 15, 0, 0),
+    status: "Present", //Present,Absent,Late
+    remarks: "good",
+    recorded_by: "john",
+    created_at: new Date(2025, 5, 15, 0, 0),
   },
 ];
 
 const Attendance = () => {
+  const [showTeachers, setShowTeachers] = useState<boolean>(true);
+  const [showStudents, setShowStudents] = useState<boolean>(false);
+
   const renderRowTeacher = (item: TeacherAttendance) => {
     return (
       <tr key={item._id} className="row-data">
-        <td
-          className="teacher-date"
-          style={{ display: "flex", alignItems: "center", gap: "0px" }}
-        >
+        <td className="teacher-date">
           <h3>{item.teacher}</h3>
-          {/* <p>{item.date?.toLocaleDateString().substring(0, 10)}</p> */}
+          <p>{item.date?.toLocaleDateString().substring(0, 10)}</p>
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
           {item.academic_year}
         </td>
         <td className="teacher-time inner-data">
-          {/* <span>{item.check_in_time?.toLocaleTimeString()}</span>
-          <span>{item.check_out_time?.toLocaleTimeString()}</span> */}
+          <span>{item.check_in_time?.toLocaleTimeString()}</span>
+          <span>{item.check_out_time?.toLocaleTimeString()}</span>
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
           {item.status}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {/* {item.created_at?.toLocaleDateString()} */}
+          {item.created_at?.toLocaleDateString()}
         </td>
         <td>
           <div
@@ -174,13 +218,15 @@ const Attendance = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
+                padding: "2px",
+                borderRadius: "50%",
               }}
             >
               <SlEye
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
             <button
@@ -188,13 +234,15 @@ const Attendance = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
+                padding: "2px",
+                borderRadius: "50%",
               }}
             >
               <TiDocumentDelete
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
           </div>
@@ -206,10 +254,7 @@ const Attendance = () => {
   const renderRowStudent = (item: StudentAttendance) => {
     return (
       <tr key={item._id} className="row-data">
-        <td
-          className="student-class"
-          style={{ display: "flex", alignItems: "center", gap: "0px" }}
-        >
+        <td className="student-class">
           <h3>{item.student}</h3>
           <p>{item.class}</p>
         </td>
@@ -239,13 +284,15 @@ const Attendance = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
+                padding: "2px",
+                borderRadius: "50%",
               }}
             >
               <SlEye
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
             <button
@@ -253,19 +300,39 @@ const Attendance = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "transparent",
+                backgroundColor: "#040558",
                 border: "none",
                 cursor: "pointer",
+                padding: "2px",
+                borderRadius: "50%",
               }}
             >
               <TiDocumentDelete
-                style={{ width: "20px", height: "20px", color: "#040558" }}
+                style={{ width: "20px", height: "20px", color: "white" }}
               />
             </button>
           </div>
         </td>
       </tr>
     );
+  };
+
+  const handleTeachers = () => {
+    if (showTeachers) {
+      return;
+    } else {
+      setShowTeachers((prev) => !prev);
+      setShowStudents(false);
+    }
+  };
+
+  const handleStudents = () => {
+    if (showStudents) {
+      return;
+    } else {
+      setShowStudents((prev) => !prev);
+      setShowTeachers(false);
+    }
   };
 
   return (
@@ -276,13 +343,58 @@ const Attendance = () => {
         <div className="list-attendance">
           <div className="sub-container">
             <h1>Results</h1>
-            <div className="up"></div>
+            <div className="up">
+              <TableSearch />
+              <div className="actions">
+                <button>
+                  <MdAddCircle className="icon" />
+                </button>
+                <button>
+                  <FaArrowAltCircleDown className="icon" />
+                </button>
+                <div className="switch-container">
+                  <button
+                    className="swicth"
+                    style={{
+                      backgroundColor: showTeachers ? "orange" : "#F7F8FA",
+                      color: showTeachers ? "white" : "orange",
+                    }}
+                    type="button"
+                    onClick={handleTeachers}
+                  >
+                    Teachers
+                  </button>
+                  <button
+                    className="swicth"
+                    style={{
+                      backgroundColor: showStudents ? "orange" : "#F7F8FA",
+                      color: showStudents ? "white" : "orange",
+                    }}
+                    type="button"
+                    onClick={handleStudents}
+                  >
+                    Students
+                  </button>
+                </div>
+                {/* {role === "admin" && <FormModal />} */}
+              </div>
+            </div>
           </div>
-          <Table
-            columns={columns}
-            renderRow={renderRowTeacher}
-            data={teachersData}
-          />
+          {showTeachers ? (
+            <Table
+              columns={columns}
+              renderRow={renderRowTeacher}
+              data={teachersData}
+            />
+          ) : (
+            <Table
+              columns={columns2}
+              renderRow={renderRowStudent}
+              data={studentsData}
+            />
+          )}
+          {showTeachers && <Pagination itemsLength={teachersData.length} />}
+          {!showTeachers && <Pagination itemsLength={studentsData.length} />}
         </div>
       </div>
     </div>

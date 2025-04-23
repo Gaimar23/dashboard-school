@@ -42,12 +42,12 @@ const Pagination: React.FC<PaginationProps> = ({
           style={{
             border: "none",
             cursor: "pointer",
-            backgroundColor: "#040558",
+            backgroundColor: "#e2e8f0",
             borderRadius: "20px",
             padding: "6px 10px",
             width: "100px",
-            color: "white",
-            opacity: currentPage === 1 ? "0.7" : "1",
+            color: "black",
+            opacity: currentPage === 1 ? "0.5" : "1",
             display: "flex",
             alignItems: "center",
             gap: "8px",
@@ -68,12 +68,13 @@ const Pagination: React.FC<PaginationProps> = ({
           style={{
             border: "none",
             cursor: "pointer",
-            backgroundColor: "#040558",
+            // backgroundColor: "#040558",
+            backgroundColor: "#e2e8f0",
             borderRadius: "20px",
             padding: "6px 10px",
             width: "100px",
-            color: "white",
-            opacity: currentPage === totalPages ? "0.7" : "1",
+            color: "black",
+            opacity: currentPage === totalPages ? "0.5" : "1",
             display: "flex",
             alignItems: "center",
             gap: "8px",
@@ -86,12 +87,12 @@ const Pagination: React.FC<PaginationProps> = ({
       </div>
       <div
         style={{
-          backgroundColor: "#040558",
+          backgroundColor: "#e2e8f0",
           minWidth: "80px",
           padding: "4px 10px",
           borderRadius: "20px",
           textAlign: "center",
-          color: "white",
+          color: "black",
         }}
       >
         <span>{currentPage}</span>/<span>{totalPages}</span>

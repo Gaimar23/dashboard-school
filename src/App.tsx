@@ -12,6 +12,7 @@ import Exams from "./pages/exams/Exams";
 import Assignments from "./pages/assignments/Assignments";
 import Results from "./pages/results/Results";
 import Attendance from "./pages/attendance/Attendance";
+import AnnouncementsList from "./pages/announcementsList/AnnouncementsList";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/list/assignments" element={<Assignments />} />
         <Route path="/list/results" element={<Results />} />
         <Route path="/list/attendance" element={<Attendance />} />
+        <Route path="/list/announcements" element={<AnnouncementsList />} />
       </Routes>
     </>
   );
