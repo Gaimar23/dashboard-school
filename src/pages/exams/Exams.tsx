@@ -145,7 +145,10 @@ const Exams = () => {
           className=""
           style={{ display: "flex", alignItems: "center", gap: "0px" }}
         >
-          <MdImportExport
+          {/* <MdImportExport
+            style={{ width: "20px", height: "20px", opacity: "0.5" }}
+          /> */}
+          <IoFilterOutline
             style={{ width: "20px", height: "20px", opacity: "0.5" }}
           />
           <div className="subject-title">
