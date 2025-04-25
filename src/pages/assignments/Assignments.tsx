@@ -7,6 +7,7 @@ import { IoMdCloudDownload } from "react-icons/io";
 import Pagination from "../../components/pagination/Pagination";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import TableSearch from "../../components/tableSearch/TableSearch";
 
 type assignmentData = {
   _id: string;
@@ -210,7 +211,18 @@ const Assignments = () => {
         <div className="list-assignments">
           <div className="sub-container">
             <h1>Assignments</h1>
-            <div className="up"></div>
+            <div className="up">
+              <TableSearch />
+              <div className="actions">
+                <button>
+                  <MdAddCircle className="icon" />
+                </button>
+                <button>
+                  <FaArrowAltCircleDown className="icon" />
+                </button>
+                {/* {role === "admin" && <FormModal />} */}
+              </div>
+            </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
           <Pagination itemsLength={allData.length} />

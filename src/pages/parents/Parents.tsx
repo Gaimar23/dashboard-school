@@ -2,8 +2,6 @@ import Menu from "../../components/menu/Menu";
 import Navbar from "../../components/navbar/Navbar";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import "./Parents.scss";
-import { IoFilterOutline } from "react-icons/io5";
-import { FaSortAmountDownAlt } from "react-icons/fa";
 import { SlEye } from "react-icons/sl";
 import { parentsData, role } from "../../data/data";
 // import FormModal from "../../components/formModal/FormModal";
@@ -11,11 +9,14 @@ import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useState } from "react";
+import AddParent from "../../components/formModal/addParent/AddParent";
 
 type Parent = {
   id: string;
   name: string;
   email?: string;
+  photo: string;
   students: string[];
   phone: string;
   address: string;
@@ -48,10 +49,13 @@ const columns = [
 ];
 
 const Parents = () => {
+  const [showAddParent, setShowAddParent] = useState(false);
+
   const renderRow = (item: Parent) => {
     return (
       <tr key={item.id} className="row-data">
         <td className="info-name-email">
+          <img src={item.photo} alt="" className="image" />
           <div className="name-email">
             <h3>{item.name}</h3>
             <p>{item?.email}</p>
@@ -116,13 +120,14 @@ const Parents = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddParent && <AddParent setShowAddParent={setShowAddParent} />}
         <div className="list-parents">
           <div className="sub-container">
             <h1>Parents</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddParent(true)}>
                   <IoPersonAddSharp className="icon" />
                 </button>
                 <button>

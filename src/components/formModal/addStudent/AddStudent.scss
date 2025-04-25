@@ -1,0 +1,139 @@
+.add-student-container{
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.267);
+    // display: none;
+
+    .form-student{
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+
+        .head-form{
+            position: relative;
+
+            .first-row{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 15px;
+
+                .upload-picture{
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .student-image{
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        padding-left: 4px;
+                        padding-top: 4px;
+                        background-color: white;
+
+                    }
+
+                }
+            }
+
+            .close{
+                background-color: orange;
+                height: 25px;
+                width: 25px;
+                border-radius: 4px;
+                padding: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: white;
+            }
+        }
+
+        .sub-title{
+            font-size: 14px;
+            opacity: 0.5;
+            margin-bottom: 20px;
+            // 
+            display: none;
+
+            &.two{
+                margin-top: 20px;
+            }
+
+            &.one{
+                margin-top: 20px;
+            }
+        }
+
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 10px;
+
+            &.second{
+                margin-top: 10px;
+            }
+
+            &.third{
+                margin-top: 20px;
+                flex-direction: column;
+
+                .input-container{
+                    width: 100%;
+                }
+            }
+
+            .input-container{
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                width: 30%;
+
+                input{
+                    padding: 8px 10px;
+                    outline: none;
+                    border: 1px solid rgba(0, 0, 0, 0.349);
+                    border-radius: 5px;
+                    font-size: 14px;
+                }
+
+                label{
+                    font-size: 14px;
+                    color: gray;
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .btn-student{
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #040558;
+            outline: none;
+            cursor: pointer;
+            padding: 8px 0;
+            background-color: #040558;
+            border-radius: 5px;
+            color: rgba(255, 255, 255, 0.808);
+            font-weight: 600;
+        }
+    }
+
+}

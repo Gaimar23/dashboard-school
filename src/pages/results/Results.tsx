@@ -6,6 +6,9 @@ import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
 import { CgNotes } from "react-icons/cg";
+import TableSearch from "../../components/tableSearch/TableSearch";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Result = {
   _id: string;
@@ -217,7 +220,18 @@ const Results = () => {
         <div className="list-results">
           <div className="sub-container">
             <h1>Results</h1>
-            <div className="up"></div>
+            <div className="up">
+              <TableSearch />
+              <div className="actions">
+                <button>
+                  <MdAddCircle className="icon" />
+                </button>
+                <button>
+                  <FaArrowAltCircleDown className="icon" />
+                </button>
+                {/* {role === "admin" && <FormModal />} */}
+              </div>
+            </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
           <Pagination itemsLength={allData.length} />

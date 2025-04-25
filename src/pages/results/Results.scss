@@ -28,6 +28,37 @@
                 }
 
                 .up{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 16px;
+                    width: 100%;
+
+                    .actions{
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        // align-self: flex-end;
+
+                        button{
+                            width: 32px;
+                            height: 32px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: orange;
+                            border-radius: 50%;
+                            outline: none;
+                            border: 2px solid orange;
+                            cursor: pointer;
+
+                            .icon{
+                                width: 16px;
+                                height: 16px;
+                                color: white;
+                            }
+                        }
+                    }
 
                 }
 
@@ -114,7 +145,7 @@
 
                     .up{
                         width: auto;
-                        // flex-direction: row;
+                        flex-direction: row;
                     }
                 }
 

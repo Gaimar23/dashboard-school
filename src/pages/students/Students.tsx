@@ -4,14 +4,13 @@ import { SlEye } from "react-icons/sl";
 import Menu from "../../components/menu/Menu";
 import Navbar from "../../components/navbar/Navbar";
 import TableSearch from "../../components/tableSearch/TableSearch";
-import { IoFilterOutline } from "react-icons/io5";
-import { FaSortAmountDownAlt } from "react-icons/fa";
 import { role, studentsData } from "../../data/data";
-import FormModal from "../../components/formModal/FormModal";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useState } from "react";
+import AddStudent from "../../components/formModal/addStudent/AddStudent";
 
 type Student = {
   id: number;
@@ -20,9 +19,12 @@ type Student = {
   email?: string;
   photo: string;
   phone?: string;
-  grade: string;
+  // grade: string;
+  parents: string[];
   class: string;
   address: string;
+  gender: string;
+  password: string;
 };
 
 const columns = [
@@ -36,8 +38,8 @@ const columns = [
     className: "table-data",
   },
   {
-    header: "Grade",
-    accessor: "grade",
+    header: "Parents",
+    accessor: "parents",
     className: "table-data",
   },
   {
@@ -57,6 +59,8 @@ const columns = [
 ];
 
 const Students = () => {
+  const [showAddStudent, setShowAddStudent] = useState(false);
+
   const renderRow = (item: Student) => {
     return (
       <tr key={item.id} className="row-data">
@@ -71,7 +75,9 @@ const Students = () => {
           {item.studentId}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {item.grade}
+          {item.parents.join(",").length > 14
+            ? item.parents.join(",").substring(0, 14) + "..."
+            : item.parents.join(",")}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
           {item.phone}
@@ -125,13 +131,14 @@ const Students = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddStudent && <AddStudent setShowAddStudent={setShowAddStudent} />}
         <div className="list-students">
           <div className="sub-container">
             <h1>Elèves</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddStudent(true)}>
                   <IoPersonAddSharp className="icon" />
                 </button>
                 <button>

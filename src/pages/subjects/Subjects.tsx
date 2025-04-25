@@ -3,11 +3,12 @@ import Navbar from "../../components/navbar/Navbar";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import "./Subjects.scss";
 import { IoFilterOutline } from "react-icons/io5";
-import { FaSortAmountDownAlt } from "react-icons/fa";
 import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
 import { subjectsData } from "../../data/data";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Subject = {
   id: string;
@@ -40,7 +41,9 @@ const Subjects = () => {
           <h3>{item.name}</h3>
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {item.teachers.join(",")}
+          {item.teachers.join(",").length > 38
+            ? item.teachers.join(",").substring(0, 37) + "..."
+            : item.teachers.join(",")}
         </td>
         <td>
           <div
@@ -97,10 +100,10 @@ const Subjects = () => {
               <TableSearch />
               <div className="actions">
                 <button>
-                  <IoFilterOutline className="icon" />
+                  <MdAddCircle className="icon" />
                 </button>
                 <button>
-                  <FaSortAmountDownAlt className="icon" />
+                  <FaArrowAltCircleDown className="icon" />
                 </button>
                 {/* {role === "admin" && <FormModal />} */}
               </div>

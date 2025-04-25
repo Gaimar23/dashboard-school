@@ -342,7 +342,7 @@ const Attendance = () => {
         <Navbar />
         <div className="list-attendance">
           <div className="sub-container">
-            <h1>Results</h1>
+            <h1>Présence</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">

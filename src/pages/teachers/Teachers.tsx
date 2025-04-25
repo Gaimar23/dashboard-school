@@ -3,15 +3,14 @@ import Menu from "../../components/menu/Menu";
 import Navbar from "../../components/navbar/Navbar";
 import "./Teachers.scss";
 import { role, teachersData } from "../../data/data";
-import FormModal from "../../components/formModal/FormModal";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
-import { IoFilterOutline } from "react-icons/io5";
-import { FaSortAmountDownAlt } from "react-icons/fa";
 import { SlEye } from "react-icons/sl";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useState } from "react";
+import AddTeacher from "../../components/formModal/addTeacher/AddTeacher";
 
 type Teacher = {
   id: number;
@@ -23,6 +22,8 @@ type Teacher = {
   subjects: string[];
   classes: string[];
   address: string;
+  gender: string;
+  password: string;
 };
 
 const columns = [
@@ -62,6 +63,8 @@ const columns = [
 ];
 
 const Teachers = () => {
+  const [showAddTeacher, setShowAddTeacher] = useState(false);
+
   const renderRow = (item: Teacher) => {
     return (
       <tr key={item.id} className="row-data">
@@ -134,13 +137,14 @@ const Teachers = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddTeacher && <AddTeacher setShowAddTeacher={setShowAddTeacher} />}
         <div className="list-teachers">
           <div className="sub-container">
             <h1>Enseignants</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddTeacher(true)}>
                   <IoPersonAddSharp className="icon" />
                 </button>
                 <button>

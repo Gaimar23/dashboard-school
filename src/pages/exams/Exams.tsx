@@ -4,9 +4,11 @@ import Table from "../../components/table/Table";
 import "./Exams.scss";
 import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
-import { MdImportExport } from "react-icons/md";
 import Pagination from "../../components/pagination/Pagination";
 import { IoFilterOutline } from "react-icons/io5";
+import TableSearch from "../../components/tableSearch/TableSearch";
+import { MdAddCircle } from "react-icons/md";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 type Exam = {
   _id: string;
@@ -145,11 +147,13 @@ const Exams = () => {
           className=""
           style={{ display: "flex", alignItems: "center", gap: "0px" }}
         >
-          {/* <MdImportExport
-            style={{ width: "20px", height: "20px", opacity: "0.5" }}
-          /> */}
           <IoFilterOutline
-            style={{ width: "20px", height: "20px", opacity: "0.5" }}
+            style={{
+              width: "20px",
+              height: "20px",
+              opacity: "0.5",
+              display: "none",
+            }}
           />
           <div className="subject-title">
             <h3>{item.subject}</h3>
@@ -193,10 +197,10 @@ const Exams = () => {
           >
             <span
               style={{
-                backgroundColor: "#040558",
+                backgroundColor: "transparent",
                 padding: "1px 5px",
                 borderRadius: "10px",
-                color: "white",
+                color: "black",
                 marginBottom: "1px",
               }}
             >
@@ -268,7 +272,18 @@ const Exams = () => {
         <div className="list-exams">
           <div className="sub-container">
             <h1>Exams</h1>
-            <div className="up"></div>
+            <div className="up">
+              <TableSearch />
+              <div className="actions">
+                <button>
+                  <MdAddCircle className="icon" />
+                </button>
+                <button>
+                  <FaArrowAltCircleDown className="icon" />
+                </button>
+                {/* {role === "admin" && <FormModal />} */}
+              </div>
+            </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
           <Pagination itemsLength={allData.length} />
