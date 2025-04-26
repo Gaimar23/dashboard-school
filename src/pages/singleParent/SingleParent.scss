@@ -1,4 +1,4 @@
-.single-teacher-container{
+.single-parent-container{
     min-height: 100vh;
     display: flex;
 
@@ -9,7 +9,7 @@
         flex-flow: column;
         background-color: #F7F8FA;
 
-        .single-teacher{
+        .single-parent{
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -171,31 +171,42 @@
                         font-weight: 600;
                     }
 
-                    .our-calendar{
-                        position: absolute;
-                        z-index: 100;
-                        top: -250px;
-                        left: 50%;
-                        transform: translateX(-50%);
+                    .history-container{
+                        height: calc(720px);
+                        overflow-y: scroll;
+                        margin-top: 10px;
 
-                        .react-calendar{
-                            border: none;
-                            place-self: center;
+                        .paiement-table{
+                            width: 100%;
+                            margin-top: 16px;
+                            border-collapse: collapse;
+                    
+                            .row-data{
+                                border: 1px solid #e5e7eb;
+                                background-color: #F7F8FA;
 
-                            .react-calendar__navigation__label{
+                                &:nth-child(odd){
+                                    background-color: white;
+                                    // background-color: #f8fafc;
+                                }
 
-                                span{
-                                    font-weight: 600;
-                                    font-size: 17px;
-                            
+                                .date{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    // gap: 8px;
+                                    padding: 4px 10px;
+                                    border-right: 1px solid #e5e7eb;
+                                    height: 74px;
+                
+                                }
+
+                                .student{
+                                    text-align: left;
+                                    // font-size: 14px;
+                                    padding: 4px 10px;     
                                 }
                             }
-                            
-                            .react-calendar__navigation button{
-                                font-size: 20px;
-                                border-radius: 50%;
-                            }
-                    
                         }
                     }
                 }
@@ -207,10 +218,11 @@
                 flex-direction: column;
                 gap: 16px;
 
-                .courses-classes-container{
+                .students-classe-container{
                     background-color: white;
                     padding: 17px;
                     border-radius: 6px;
+                    // min-height: 201px;
                     min-height: 249px;
                     
                     .scroll-table{
@@ -279,14 +291,15 @@
         }
         
     }
+
 }
 
 
 @media screen and (max-width: 400px){
-    .single-teacher-container{
+    .single-parent-container{
 
         .right{
-            .single-teacher{
+            .single-parent{
                 .left{
                     .top{
                         .user-info-card{
@@ -307,11 +320,11 @@
 }
 
 @media screen and (min-width: 768px){
-    .single-teacher-container{
+    .single-parent-container{
 
         .right{
 
-            .single-teacher{
+            .single-parent{
 
                 .left{
         
@@ -346,11 +359,11 @@
 }
 
 @media screen and (min-width: 1024px){
-    .single-teacher-container{
+    .single-parent-container{
 
         .right{
 
-            .single-teacher{
+            .single-parent{
 
                 .left{
         
@@ -380,11 +393,11 @@
 }
 
 @media screen and (min-width: 1280px){
-    .single-teacher-container{
+    .single-parent-container{
 
         .right{
 
-            .single-teacher{
+            .single-parent{
                 flex-direction: row;
 
                 .left{
@@ -413,11 +426,11 @@
 }
 
 @media screen and (min-width: 1536px){
-    .single-teacher-container{
+    .single-parent-container{
 
         .right{
 
-            .single-teacher{
+            .single-parent{
 
                 .left{
         

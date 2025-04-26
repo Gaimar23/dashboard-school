@@ -11,6 +11,7 @@ import { IoPersonAddSharp } from "react-icons/io5";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { useState } from "react";
 import AddParent from "../../components/formModal/addParent/AddParent";
+import { Link } from "react-router-dom";
 
 type Parent = {
   id: string;
@@ -80,21 +81,24 @@ const Parents = () => {
               gap: "10px",
             }}
           >
-            <button
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#040558",
-                border: "none",
-                cursor: "pointer",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px",
-              }}
-            >
-              <SlEye style={{ width: "20px", height: "20px" }} />
-            </button>
+            <Link to={`/list/parents/${item.id}`}>
+              <button
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "#040558",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "white",
+                  borderRadius: "50%",
+                  padding: "2px",
+                }}
+              >
+                <SlEye style={{ width: "20px", height: "20px" }} />
+              </button>
+            </Link>
+
             <button
               style={{
                 display: "flex",

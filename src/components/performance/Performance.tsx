@@ -2,16 +2,16 @@ import "./Performance.scss";
 import { TfiMoreAlt } from "react-icons/tfi";
 import { ResponsiveContainer, PieChart, Pie } from "recharts";
 
-const data = [
-  { name: "Group A", value: 92, fill: "orange" },
-  { name: "Group B", value: 8, fill: "#040558" },
-];
+// const data = [
+//   { name: "Group A", value: 92, fill: "orange" },
+//   { name: "Group B", value: 8, fill: "#040558" },
+// ];
 
-const Performance = () => {
+const Performance = ({ title, data }: { title: string; data: any[] }) => {
   return (
     <div className="performance-container">
       <div className="title-icon">
-        <h1>Performance</h1>
+        <h1>{title}</h1>
         <TfiMoreAlt className="icon" />
       </div>
       <ResponsiveContainer width={"100%"} height={"100%"}>

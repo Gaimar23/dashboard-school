@@ -1,0 +1,14 @@
+.settings-container{
+    min-height: 100vh;
+    display: flex;
+
+    .right{
+        width: 86%;
+        // overflow: scroll;
+        display: flex;
+        flex-flow: column;
+        background-color: #F7F8FA;
+
+    }
+
+}

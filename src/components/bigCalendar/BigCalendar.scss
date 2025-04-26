@@ -9,9 +9,10 @@
             padding: 10px 15px; 
             cursor: pointer;   
             transition: all 0.3s ease-in-out;
+            background-color: #F7F8FA;
 
             &:hover{
-                background-color: #F7F8FA;
+                background-color: white;
             }
         }
     }
@@ -27,14 +28,15 @@
                 border: 1px solid #e5e7eb;
                 background-color: #F7F8FA;
                 
-                // &:nth-child(even){
-                //     background-color: #f8fafc;
-                // }
+                &:nth-child(even){
+                    background-color: white;
+                }
 
                 .time{
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    flex-direction: column;
                     // gap: 8px;
                     padding: 4px 10px;
                     border-right: 1px solid #e5e7eb;
@@ -42,7 +44,7 @@
 
 
                     span{
-                        font-size: 12px;
+                        font-size: 14px;
                     }
 
                     .icon{
@@ -53,7 +55,7 @@
 
                 .to-do{
                     text-align: left;
-                    font-size: 12px;
+                    font-size: 14px;
                     padding: 4px 10px;
                 }
             }

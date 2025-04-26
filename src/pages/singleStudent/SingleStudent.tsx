@@ -1,27 +1,17 @@
-import { useParams } from "react-router-dom";
-import "./SingleTeacher.scss";
-import { useEffect, useState } from "react";
-import photo from "../../assets/images/john.jpg";
-import { IoFilterOutline } from "react-icons/io5";
 import Menu from "../../components/menu/Menu";
 import Navbar from "../../components/navbar/Navbar";
+import "./SingleStudent.scss";
 import { FaPhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { ImCalendar } from "react-icons/im";
 import { GrMail } from "react-icons/gr";
 import { BsCheckCircle } from "react-icons/bs";
 import { TfiMoreAlt } from "react-icons/tfi";
+import { IoFilterOutline } from "react-icons/io5";
+import { BsCalendar3 } from "react-icons/bs";
 import Performance from "../../components/performance/Performance";
 import Announcements from "../../components/announcements/Announcements";
-import BigCalendar from "../../components/bigCalendar/BigCalendar";
-import { BsCalendar3 } from "react-icons/bs";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-
-// type TeacherData = {
-//   subject: string;
-//   classes: string[];
-// };
+import photo from "../../assets/images/john.jpg";
 
 const columns = [
   {
@@ -35,53 +25,18 @@ const columns = [
   },
 ];
 
-type SelectedDate = Date | null;
-type Value = SelectedDate | [SelectedDate, SelectedDate];
-
-const SingleTeacher = () => {
-  const { teacherId } = useParams();
-  // const [teacher, setTeacher] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [date_, handleDateChange] = useState<Value>(new Date());
-
-  const dataPerformance = [
+const SingleStudent = () => {
+  const dataAttendance = [
     { name: "Group A", value: 92, fill: "orange" },
     { name: "Group B", value: 8, fill: "#040558" },
   ];
 
-  useEffect(() => {
-    // async function fetchTeacher() {
-    //   try {
-    //     setLoading(true)
-    //     // const result = await axios
-    //     if (result.Data.data.success) {
-    //       setTeacher(resultsData.data.data)
-    //     }
-    //     setLoading(false)
-    //   } catch (error) {
-    //   }
-    // }
-    // fetchTeacher()
-  }, [teacherId]);
-
-  useEffect(() => {
-    console.log("date_:", date_?.toLocaleString());
-    showCalendar && setShowCalendar((prev) => !prev);
-  }, [date_]);
-
-  const handleDisplayCalendar = () => {
-    setShowCalendar((prev) => !prev);
-  };
-
-  // const updateDate = () => {};
-
   return (
-    <div className="single-teacher-container">
+    <div className="single-student-container">
       <Menu />
       <div className="right">
         <Navbar />
-        <div className="single-teacher">
+        <div className="single-student">
           <div className="left">
             <div className="top">
               <div className="user-info-card">
@@ -167,18 +122,13 @@ const SingleTeacher = () => {
                   position: "relative",
                 }}
               >
-                <h1>Teacher's Schedule</h1>
-                <div className="our-calendar" id="our-calendar">
-                  {showCalendar && (
-                    <Calendar onChange={handleDateChange} value={date_} />
-                  )}
-                </div>
+                <h1>Student's Schedule</h1>
                 <BsCalendar3 style={{ width: "20px", height: "20px" }} />
               </div>
-              <BigCalendar
+              {/* <BigCalendar
                 handleDisplayCalendar={handleDisplayCalendar}
                 date_={date_}
-              />
+              /> */}
             </div>
           </div>
           <div className="right">
@@ -233,7 +183,7 @@ const SingleTeacher = () => {
                 </table>
               </div>
             </div>
-            <Performance title="Performance" data={dataPerformance} />
+            <Performance title="Assiduité" data={dataAttendance} />
             <Announcements />
           </div>
         </div>
@@ -242,4 +192,4 @@ const SingleTeacher = () => {
   );
 };
 
-export default SingleTeacher;
+export default SingleStudent;

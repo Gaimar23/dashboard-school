@@ -20,7 +20,17 @@ const Announcements = () => {
         </div>
         <div className="item">
           <div className="intro">
-            <h2>Nouvelle revue mensuelle</h2>
+            <h2>Examen blanc du second tour</h2>
+            <span>23/09/2025</span>
+          </div>
+          <p className="description">
+            Ceci est un nouveau jour et Ceci est un nouveau jour et Ceci est un
+            nouveau jour et direction
+          </p>
+        </div>
+        <div className="item">
+          <div className="intro">
+            <h2>Atelier des découvertes</h2>
             <span>23/09/2025</span>
           </div>
           <p className="description">

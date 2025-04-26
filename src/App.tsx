@@ -13,6 +13,10 @@ import Assignments from "./pages/assignments/Assignments";
 import Results from "./pages/results/Results";
 import Attendance from "./pages/attendance/Attendance";
 import AnnouncementsList from "./pages/announcementsList/AnnouncementsList";
+import SingleStudent from "./pages/singleStudent/SingleStudent";
+import SingleParent from "./pages/singleParent/SingleParent";
+import Profile from "./pages/profile/Profile";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   return (
@@ -20,11 +24,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/student" element={<Student />} />
         <Route path="/list/teachers" element={<Teachers />} />
         <Route path="/list/teachers/:teacherId" element={<SingleTeacher />} />
         <Route path="/list/students" element={<Students />} />
+        <Route path="/list/students/:studentId" element={<SingleStudent />} />
         <Route path="/list/parents" element={<Parents />} />
+        <Route path="/list/parents/:parentId" element={<SingleParent />} />
         <Route path="/list/subjects" element={<Subjects />} />
         <Route path="/list/classes" element={<Classes />} />
         <Route path="/list/exams" element={<Exams />} />

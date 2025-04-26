@@ -1,87 +1,68 @@
-import { useParams } from "react-router-dom";
-import "./SingleTeacher.scss";
-import { useEffect, useState } from "react";
-import photo from "../../assets/images/john.jpg";
-import { IoFilterOutline } from "react-icons/io5";
-import Menu from "../../components/menu/Menu";
-import Navbar from "../../components/navbar/Navbar";
+import "./SingleParent.scss";
 import { FaPhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 import { ImCalendar } from "react-icons/im";
 import { GrMail } from "react-icons/gr";
 import { BsCheckCircle } from "react-icons/bs";
 import { TfiMoreAlt } from "react-icons/tfi";
+import { IoFilterOutline } from "react-icons/io5";
+import { BsCalendar3 } from "react-icons/bs";
 import Performance from "../../components/performance/Performance";
 import Announcements from "../../components/announcements/Announcements";
-import BigCalendar from "../../components/bigCalendar/BigCalendar";
-import { BsCalendar3 } from "react-icons/bs";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-
-// type TeacherData = {
-//   subject: string;
-//   classes: string[];
-// };
+import photo from "../../assets/images/john.jpg";
+import Menu from "../../components/menu/Menu";
+import Navbar from "../../components/navbar/Navbar";
+import { FaScaleBalanced } from "react-icons/fa6";
 
 const columns = [
   {
-    header: "Subject Name",
-    accessor: "subject",
+    header: "Student Name",
+    accessor: "student",
   },
   {
-    header: "Classes",
-    accessor: "classes",
+    header: "Classe",
+    accessor: "classe",
     className: "table-data",
   },
 ];
 
-type SelectedDate = Date | null;
-type Value = SelectedDate | [SelectedDate, SelectedDate];
-
-const SingleTeacher = () => {
-  const { teacherId } = useParams();
-  // const [teacher, setTeacher] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [date_, handleDateChange] = useState<Value>(new Date());
-
-  const dataPerformance = [
+const SingleParent = () => {
+  const dataAttendance = [
     { name: "Group A", value: 92, fill: "orange" },
     { name: "Group B", value: 8, fill: "#040558" },
   ];
 
-  useEffect(() => {
-    // async function fetchTeacher() {
-    //   try {
-    //     setLoading(true)
-    //     // const result = await axios
-    //     if (result.Data.data.success) {
-    //       setTeacher(resultsData.data.data)
-    //     }
-    //     setLoading(false)
-    //   } catch (error) {
-    //   }
-    // }
-    // fetchTeacher()
-  }, [teacherId]);
+  const paiementsData = [
+    {
+      date: new Date(),
+      student: "Damien Okaka Limonba barbama okaolo",
+      amount: 230000,
+    },
+    {
+      date: new Date(),
+      student: "Damien Okaka Limonba barbama okaolo",
+      amount: 230000,
+    },
+    {
+      date: new Date(),
+      student: "Damien Okaka Limonba barbama okaolo",
+      amount: 230000,
+    },
+    {
+      date: new Date(),
+      student: "Damien Okaka Limonba barbama okaolo",
+      amount: 230000,
+    },
+  ];
 
-  useEffect(() => {
-    console.log("date_:", date_?.toLocaleString());
-    showCalendar && setShowCalendar((prev) => !prev);
-  }, [date_]);
-
-  const handleDisplayCalendar = () => {
-    setShowCalendar((prev) => !prev);
-  };
-
-  // const updateDate = () => {};
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
-    <div className="single-teacher-container">
+    <div className="single-parent-container">
       <Menu />
       <div className="right">
         <Navbar />
-        <div className="single-teacher">
+        <div className="single-parent">
           <div className="left">
             <div className="top">
               <div className="user-info-card">
@@ -122,8 +103,8 @@ const SingleTeacher = () => {
                     <TfiMoreAlt className="icon" />
                   </div>
                   <div>
-                    <h1>90%</h1>
-                    <span>Attendance</span>
+                    <h1>240000</h1>
+                    <span>Scolarité</span>
                   </div>
                 </div>
                 <div className="card">
@@ -133,7 +114,7 @@ const SingleTeacher = () => {
                   </div>
                   <div>
                     <h1>10</h1>
-                    <span>Classes</span>
+                    <span>Elèves</span>
                   </div>
                 </div>
                 <div className="card">
@@ -142,18 +123,18 @@ const SingleTeacher = () => {
                     <TfiMoreAlt className="icon" />
                   </div>
                   <div>
-                    <h1>7</h1>
-                    <span>Subjects</span>
+                    <h1>125000</h1>
+                    <span>Règlement</span>
                   </div>
                 </div>
                 <div className="card">
                   <div className="icons">
-                    <IoFilterOutline className="icon" />
+                    <FaScaleBalanced className="icon" />
                     <TfiMoreAlt className="icon" />
                   </div>
                   <div>
-                    <h1>90%</h1>
-                    <span>Attendance</span>
+                    <h1>115000</h1>
+                    <span>Solde</span>
                   </div>
                 </div>
               </div>
@@ -167,23 +148,74 @@ const SingleTeacher = () => {
                   position: "relative",
                 }}
               >
-                <h1>Teacher's Schedule</h1>
-                <div className="our-calendar" id="our-calendar">
-                  {showCalendar && (
-                    <Calendar onChange={handleDateChange} value={date_} />
-                  )}
-                </div>
+                <h1>Historique de paiement</h1>
                 <BsCalendar3 style={{ width: "20px", height: "20px" }} />
               </div>
-              <BigCalendar
-                handleDisplayCalendar={handleDisplayCalendar}
-                date_={date_}
-              />
+              <div className="history-container">
+                <table className="paiement-table">
+                  <tbody>
+                    {paiementsData.map((info, i) => {
+                      return (
+                        <tr className="row-data" key={i}>
+                          <td className="student">
+                            <p style={{ fontSize: "15px" }}>
+                              {info.student.length > 25
+                                ? info.student.substring(0, 25) + "..."
+                                : info.student}
+                            </p>
+                            <span style={{ fontSize: "12px", opacity: "0.5" }}>
+                              {info.date.toLocaleDateString().substring(0, 10)}
+                            </span>
+                          </td>
+                          <td className="amount">{info.amount}</td>
+                        </tr>
+                      );
+                    })}
+
+                    {paiementsData.length < 12 &&
+                      countRow
+                        .slice(0, countRow.length - paiementsData.length)
+                        .map((info, index) => {
+                          return (
+                            <tr
+                              className="row-data"
+                              key={index + paiementsData.length}
+                            >
+                              <td className="student">
+                                <p
+                                  style={{
+                                    fontSize: "15px",
+                                    color: "transparent",
+                                  }}
+                                >
+                                  ""
+                                </p>
+                                <span
+                                  style={{
+                                    fontSize: "12px",
+                                    color: "transparent",
+                                  }}
+                                >
+                                  ""
+                                </span>
+                              </td>
+                              <td
+                                className="amount"
+                                style={{ color: "transparent" }}
+                              >
+                                ""
+                              </td>
+                            </tr>
+                          );
+                        })}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div className="right">
-            <div className="courses-classes-container">
-              <h1 className="title">Matières & Classes</h1>
+            <div className="students-classe-container">
+              <h1 className="title">Students</h1>
               <div className="scroll-table">
                 <table className="table-container">
                   <thead>
@@ -197,43 +229,43 @@ const SingleTeacher = () => {
                     <tr className="row-data">
                       <td className="icon-subject">
                         <BsCheckCircle className="icon" />
-                        <span className="subject">History</span>
+                        <span className="subject">Damien Ola</span>
                       </td>
-                      <td className="related-classes">1A,5E,Tle</td>
+                      <td className="related-classes">3E</td>
                     </tr>
                     <tr className="row-data">
                       <td className="icon-subject">
                         <BsCheckCircle className="icon" />
-                        <span className="subject">Geography</span>
+                        <span className="subject">Kengne Samantha</span>
                       </td>
-                      <td className="related-classes">1A,5E,Tle</td>
+                      <td className="related-classes">5E</td>
                     </tr>
                     <tr className="row-data">
                       <td className="icon-subject">
                         <BsCheckCircle className="icon" />
-                        <span className="subject">Accounting & Finance</span>
+                        <span className="subject">Boby olando</span>
                       </td>
-                      <td className="related-classes">1A,5E,Tle</td>
+                      <td className="related-classes">1A</td>
                     </tr>
                     <tr className="row-data">
                       <td className="icon-subject">
                         <BsCheckCircle className="icon" />
-                        <span className="subject">Psychology</span>
+                        <span className="subject">Mike quolaru</span>
                       </td>
-                      <td className="related-classes">1A,5E,Tle</td>
+                      <td className="related-classes">Tle</td>
                     </tr>
                     <tr className="row-data">
                       <td className="icon-subject">
                         <BsCheckCircle className="icon" />
-                        <span className="subject">Music</span>
+                        <span className="subject">Maoudaou Abama</span>
                       </td>
-                      <td className="related-classes">1A,5E,Tle</td>
+                      <td className="related-classes">4C</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-            <Performance title="Performance" data={dataPerformance} />
+            <Performance title="Assiduité" data={dataAttendance} />
             <Announcements />
           </div>
         </div>
@@ -242,4 +274,4 @@ const SingleTeacher = () => {
   );
 };
 
-export default SingleTeacher;
+export default SingleParent;
