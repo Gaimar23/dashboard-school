@@ -63,7 +63,7 @@ const Settings = () => {
                 <h4>Academic Year</h4>
                 <div className="year-container">
                   <div className="row">
-                    <span>Start</span>
+                    <span className="label">Start</span>
                     <Select
                       options={genre}
                       styles={{
@@ -77,7 +77,7 @@ const Settings = () => {
                     />
                   </div>
                   <div className="row">
-                    <span>End</span>
+                    <span className="label">End</span>
                     <Select
                       options={genre}
                       styles={{

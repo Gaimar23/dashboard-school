@@ -114,6 +114,8 @@ const allData = [
 ];
 
 const Assignments = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRow = (item: assignmentData) => {
     return (
       <tr key={item._id} className="row-data">
@@ -225,6 +227,75 @@ const Assignments = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {allData.length < 8 &&
+                countRow
+                  .slice(0, countRow.length - allData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`S${info}`} className="row-data">
+                        <td className="subject-title">
+                          <h3 style={{ opacity: "0" }}>Economie</h3>
+                          <p style={{ opacity: "0" }}>
+                            La loi de l'offre & la demande
+                          </p>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{
+                            fontSize: "14px",
+                          }}
+                          className="inner-data"
+                        >
+                          <span
+                            style={{
+                              width: "75px",
+                              padding: "3px",
+                              borderRadius: "10px",
+                              color: "white",
+                              display: "block",
+                              textAlign: "center",
+                            }}
+                          ></span>
+                        </td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={allData.length} />
         </div>
       </div>

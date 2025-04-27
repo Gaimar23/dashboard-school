@@ -147,6 +147,8 @@ const allData = [
 ];
 
 const Results = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRow = (item: Result) => {
     return (
       <tr key={item._id} className="row-data">
@@ -154,7 +156,7 @@ const Results = () => {
           className=""
           style={{ display: "flex", alignItems: "center", gap: "0px" }}
         >
-          <CgNotes style={{ width: "20px", height: "20px", opacity: "0.5" }} />
+          <CgNotes style={{ width: "12px", height: "12px", opacity: "0.5" }} />
           <div className="subject-term">
             <h3>{item.subject}</h3>
             <p>{item.term}</p>
@@ -234,6 +236,68 @@ const Results = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {allData.length < 8 &&
+                countRow
+                  .slice(0, countRow.length - allData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`S${info}`} className="row-data">
+                        <td
+                          className=""
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0px",
+                          }}
+                        >
+                          <CgNotes
+                            style={{
+                              width: "12px",
+                              height: "12px",
+                              opacity: "0",
+                            }}
+                          />
+                          <div className="subject-term">
+                            <h3 style={{ opacity: "0" }}>Comptabilité</h3>
+                            <p style={{ opacity: "0" }}>1er Séquence</p>
+                          </div>
+                        </td>
+                        <td className="student-class inner-data">
+                          <h3></h3>
+                          <p></p>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={allData.length} />
         </div>
       </div>

@@ -33,6 +33,8 @@ const columns = [
 ];
 
 const Subjects = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   const renderRow = (item: Subject) => {
     return (
       <tr key={item.id} className="row-data">
@@ -88,6 +90,7 @@ const Subjects = () => {
       </tr>
     );
   };
+
   return (
     <div className="list-subjects-container">
       <Menu />
@@ -110,6 +113,46 @@ const Subjects = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={subjectsData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {subjectsData.length < 10 &&
+                countRow
+                  .slice(0, countRow.length - subjectsData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`S${info}`} className="row-data">
+                        <td style={{ fontSize: "14px" }} className="icon-name">
+                          <IoFilterOutline
+                            className="icon"
+                            style={{ opacity: "0" }}
+                          />
+                          <h3 style={{ opacity: "0" }}>Chemistry</h3>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={subjectsData.length} />
         </div>
       </div>

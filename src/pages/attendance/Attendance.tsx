@@ -184,6 +184,8 @@ const Attendance = () => {
   const [showTeachers, setShowTeachers] = useState<boolean>(true);
   const [showStudents, setShowStudents] = useState<boolean>(false);
 
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRowTeacher = (item: TeacherAttendance) => {
     return (
       <tr key={item._id} className="row-data">
@@ -381,17 +383,118 @@ const Attendance = () => {
             </div>
           </div>
           {showTeachers ? (
-            <Table
-              columns={columns}
-              renderRow={renderRowTeacher}
-              data={teachersData}
-            />
+            <>
+              <Table
+                columns={columns}
+                renderRow={renderRowTeacher}
+                data={teachersData}
+              />
+              {/* add rows */}
+              <table
+                style={{ width: "100%", borderCollapse: "collapse" }}
+                className="count-row"
+              >
+                <tbody>
+                  {teachersData.length < 8 &&
+                    countRow
+                      .slice(0, countRow.length - teachersData.length)
+                      .map((info) => {
+                        return (
+                          <tr key={`T${info}`} className="row-data">
+                            <td className="teacher-date">
+                              <h3 style={{ opacity: "0" }}>Dora Razel</h3>
+                              <p style={{ opacity: "0" }}>15/06/2025</p>
+                            </td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td className="teacher-time inner-data">
+                              <span></span>
+                              <span></span>
+                            </td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "flex-start",
+                                  gap: "10px",
+                                }}
+                              ></div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                </tbody>
+              </table>
+              {/*  */}
+            </>
           ) : (
-            <Table
-              columns={columns2}
-              renderRow={renderRowStudent}
-              data={studentsData}
-            />
+            <>
+              <Table
+                columns={columns2}
+                renderRow={renderRowStudent}
+                data={studentsData}
+              />
+
+              {/* add rows */}
+              <table
+                style={{ width: "100%", borderCollapse: "collapse" }}
+                className="count-row"
+              >
+                <tbody>
+                  {studentsData.length < 8 &&
+                    countRow
+                      .slice(0, countRow.length - studentsData.length)
+                      .map((info) => {
+                        return (
+                          <tr key={`S${info}`} className="row-data">
+                            <td className="student-class">
+                              <h3 style={{ opacity: "0" }}>Dora Razel</h3>
+                              <p style={{ opacity: "0" }}>Tle</p>
+                            </td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td
+                              style={{ fontSize: "14px" }}
+                              className="inner-data"
+                            ></td>
+                            <td>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "flex-start",
+                                  gap: "10px",
+                                }}
+                              ></div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                </tbody>
+              </table>
+              {/*  */}
+            </>
           )}
           {showTeachers && <Pagination itemsLength={teachersData.length} />}
           {!showTeachers && <Pagination itemsLength={studentsData.length} />}

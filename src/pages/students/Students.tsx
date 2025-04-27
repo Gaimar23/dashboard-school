@@ -61,6 +61,8 @@ const columns = [
 const Students = () => {
   const [showAddStudent, setShowAddStudent] = useState(false);
 
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRow = (item: Student) => {
     return (
       <tr key={item.id} className="row-data">
@@ -149,6 +151,63 @@ const Students = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={studentsData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {studentsData.length < 8 &&
+                countRow
+                  .slice(0, countRow.length - studentsData.length)
+                  .map((info, index) => {
+                    return (
+                      <tr className="row-data" key={`S${index}`}>
+                        <td className="image-name-class">
+                          <img
+                            src="do not render the element at all"
+                            alt=""
+                            className="image"
+                            style={{ opacity: "0" }}
+                          />
+                          <div className="name-class">
+                            <h3 style={{ opacity: "0" }}>John Glover</h3>
+                            <p style={{ opacity: "0" }}>3A</p>
+                          </div>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={studentsData.length} />
         </div>
       </div>

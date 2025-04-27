@@ -63,66 +63,66 @@ export const teachersData = [
     classes: ["5A", "4B", "3C"],
     address: "123 Main St, Anytown, USA",
   },
-  {
-    id: 6,
-    teacherId: "1234567890",
-    name: "Anna Santiago",
-    email: "anna@gmail.com",
-    photo:
-      "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    subjects: ["Physics"],
-    classes: ["5A", "4B", "3C"],
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 7,
-    teacherId: "1234567890",
-    name: "Allen Black",
-    email: "allen@black.com",
-    photo:
-      "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    subjects: ["English", "Spanish"],
-    classes: ["5A", "4B", "3C"],
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 8,
-    teacherId: "1234567890",
-    name: "Ophelia Castro",
-    email: "ophelia@castro.com",
-    photo:
-      "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    subjects: ["Math", "Geometry"],
-    classes: ["5A", "4B", "3C"],
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 9,
-    teacherId: "1234567890",
-    name: "Derek Briggs",
-    email: "derek@briggs.com",
-    photo:
-      "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    subjects: ["Literature", "English"],
-    classes: ["5A", "4B", "3C"],
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 10,
-    teacherId: "1234567890",
-    name: "John Glover",
-    email: "john@glover.com",
-    photo:
-      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    subjects: ["Biology"],
-    classes: ["5A", "4B", "3C"],
-    address: "123 Main St, Anytown, USA",
-  },
+  // {
+  //   id: 6,
+  //   teacherId: "1234567890",
+  //   name: "Anna Santiago",
+  //   email: "anna@gmail.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   subjects: ["Physics"],
+  //   classes: ["5A", "4B", "3C"],
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 7,
+  //   teacherId: "1234567890",
+  //   name: "Allen Black",
+  //   email: "allen@black.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   subjects: ["English", "Spanish"],
+  //   classes: ["5A", "4B", "3C"],
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 8,
+  //   teacherId: "1234567890",
+  //   name: "Ophelia Castro",
+  //   email: "ophelia@castro.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   subjects: ["Math", "Geometry"],
+  //   classes: ["5A", "4B", "3C"],
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 9,
+  //   teacherId: "1234567890",
+  //   name: "Derek Briggs",
+  //   email: "derek@briggs.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   subjects: ["Literature", "English"],
+  //   classes: ["5A", "4B", "3C"],
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 10,
+  //   teacherId: "1234567890",
+  //   name: "John Glover",
+  //   email: "john@glover.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   subjects: ["Biology"],
+  //   classes: ["5A", "4B", "3C"],
+  //   address: "123 Main St, Anytown, USA",
+  // },
 ];
 
 export const studentsData = [
@@ -198,54 +198,54 @@ export const studentsData = [
     class: "5A",
     address: "123 Main St, Anytown, USA",
   },
-  {
-    id: 7,
-    studentId: "1234567890",
-    name: "Allen Black",
-    email: "allen@black.com",
-    photo:
-      "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    parents: ["john","silveta"],
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 8,
-    studentId: "1234567890",
-    name: "Ophelia Castro",
-    email: "ophelia@castro.com",
-    photo:
-      "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    parents: ["john","silveta"],
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 9,
-    studentId: "1234567890",
-    name: "Derek Briggs",
-    email: "derek@briggs.com",
-    photo:
-      "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    parents: ["john","silveta"],
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 10,
-    studentId: "1234567890",
-    name: "John Glover",
-    email: "john@glover.com",
-    photo:
-      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    parents: ["john","silveta"],
-    class: "5A",
-    address: "123 Main St, Anytown, USA",
-  },
+  // {
+  //   id: 7,
+  //   studentId: "1234567890",
+  //   name: "Allen Black",
+  //   email: "allen@black.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   parents: ["john","silveta"],
+  //   class: "5A",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 8,
+  //   studentId: "1234567890",
+  //   name: "Ophelia Castro",
+  //   email: "ophelia@castro.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   parents: ["john","silveta"],
+  //   class: "5A",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 9,
+  //   studentId: "1234567890",
+  //   name: "Derek Briggs",
+  //   email: "derek@briggs.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   parents: ["john","silveta"],
+  //   class: "5A",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 10,
+  //   studentId: "1234567890",
+  //   name: "John Glover",
+  //   email: "john@glover.com",
+  //   photo:
+  //     "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   parents: ["john","silveta"],
+  //   class: "5A",
+  //   address: "123 Main St, Anytown, USA",
+  // },
 ];
 
 export const parentsData = [
@@ -309,46 +309,46 @@ export const parentsData = [
     phone: "1234567890",
     address: "123 Main St, Anytown, USA",
   },
-  {
-    id: 7,
-    name: "Allen Black",
-    students: ["Carrie Tucker", "Lilly Underwood"],
-    email: "mike@geller.com",
-    photo:
-    "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 8,
-    name: "Ophelia Castro",
-    students: ["Alexander Blair"],
-    email: "mike@geller.com",
-    photo:
-    "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 9,
-    name: "Derek Briggs",
-    students: ["Susan Webster", "Maude Stone"],
-    email: "mike@geller.com",
-    photo:
-    "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    address: "123 Main St, Anytown, USA",
-  },
-  {
-    id: 10,
-    name: "John Glover",
-    students: ["Stella Scott"],
-    email: "mike@geller.com",
-    photo:
-    "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    phone: "1234567890",
-    address: "123 Main St, Anytown, USA",
-  },
+  // {
+  //   id: 7,
+  //   name: "Allen Black",
+  //   students: ["Carrie Tucker", "Lilly Underwood"],
+  //   email: "mike@geller.com",
+  //   photo:
+  //   "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 8,
+  //   name: "Ophelia Castro",
+  //   students: ["Alexander Blair"],
+  //   email: "mike@geller.com",
+  //   photo:
+  //   "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 9,
+  //   name: "Derek Briggs",
+  //   students: ["Susan Webster", "Maude Stone"],
+  //   email: "mike@geller.com",
+  //   photo:
+  //   "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   address: "123 Main St, Anytown, USA",
+  // },
+  // {
+  //   id: 10,
+  //   name: "John Glover",
+  //   students: ["Stella Scott"],
+  //   email: "mike@geller.com",
+  //   photo:
+  //   "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  //   phone: "1234567890",
+  //   address: "123 Main St, Anytown, USA",
+  // },
 ];
 
 export const subjectsData = [
@@ -382,26 +382,26 @@ export const subjectsData = [
     name: "History",
     teachers: ["Hannah Bowman", "Betty Obrien"],
   },
-  {
-    id: 7,
-    name: "Geography",
-    teachers: ["Lora French", "Sue Brady"],
-  },
-  {
-    id: 8,
-    name: "Art",
-    teachers: ["Harriet Alvarado", "Mayme Keller"],
-  },
-  {
-    id: 9,
-    name: "Music",
-    teachers: ["Gertrude Roy", "Rosa Singleton"],
-  },
-  {
-    id: 10,
-    name: "Literature",
-    teachers: ["Effie Lynch", "Brett Flowers"],
-  },
+  // {
+  //   id: 7,
+  //   name: "Geography",
+  //   teachers: ["Lora French", "Sue Brady"],
+  // },
+  // {
+  //   id: 8,
+  //   name: "Art",
+  //   teachers: ["Harriet Alvarado", "Mayme Keller"],
+  // },
+  // {
+  //   id: 9,
+  //   name: "Music",
+  //   teachers: ["Gertrude Roy", "Rosa Singleton"],
+  // },
+  // {
+  //   id: 10,
+  //   name: "Literature",
+  //   teachers: ["Effie Lynch", "Brett Flowers"],
+  // },
 ];
 
 export const classesData = [
@@ -454,27 +454,27 @@ export const classesData = [
     grade: 7,
     supervisor: "Carrie Walton",
   },
-  {
-    id: 8,
-    name: "6B",
-    capacity: 22,
-    grade: 6,
-    supervisor: "Christopher Butler",
-  },
-  {
-    id: 9,
-    name: "6C",
-    capacity: 18,
-    grade: 6,
-    supervisor: "Marc Miller",
-  },
-  {
-    id: 10,
-    name: "6D",
-    capacity: 20,
-    grade: 6,
-    supervisor: "Ophelia Marsh",
-  },
+  // {
+  //   id: 8,
+  //   name: "6B",
+  //   capacity: 22,
+  //   grade: 6,
+  //   supervisor: "Christopher Butler",
+  // },
+  // {
+  //   id: 9,
+  //   name: "6C",
+  //   capacity: 18,
+  //   grade: 6,
+  //   supervisor: "Marc Miller",
+  // },
+  // {
+  //   id: 10,
+  //   name: "6D",
+  //   capacity: 20,
+  //   grade: 6,
+  //   supervisor: "Ophelia Marsh",
+  // },
 ];
 
 export const lessonsData = [

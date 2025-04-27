@@ -90,7 +90,7 @@
 
                     h3{
                         font-size: 14px;
-                        font-weight: 600;
+                        font-weight: 800;
                     }
 
                     p{
@@ -125,6 +125,19 @@
             }
 
         }
+
+        .count-row{
+
+            tbody{
+
+                tr{
+                    &:nth-child(1){
+                        border-top-color: transparent;
+                    }
+                }
+            }
+        }
+
     }
 }
 

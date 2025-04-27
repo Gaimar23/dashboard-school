@@ -30,11 +30,11 @@ const columns = [
     header: "Info",
     accessor: "info",
   },
-  {
-    header: "Description",
-    accessor: "description",
-    className: "table-data",
-  },
+  // {
+  //   header: "Description",
+  //   accessor: "description",
+  //   className: "table-data",
+  // },
   {
     header: "Term & Class",
     accessor: "term",
@@ -140,6 +140,8 @@ const allData = [
 ];
 
 const Exams = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRow = (item: Exam) => {
     return (
       <tr key={item._id} className="row-data">
@@ -164,11 +166,11 @@ const Exams = () => {
             </p>
           </div>
         </td>
-        <td style={{ fontSize: "14px" }} className="inner-data">
+        {/* <td style={{ fontSize: "14px" }} className="inner-data">
           {item.description.length > 30
             ? item.description.substring(0, 30) + "..."
             : item.description}
-        </td>
+        </td> */}
         <td className="term-class inner-data">
           <h3>{item.term}</h3>
           <p>{item.class}</p>
@@ -286,6 +288,111 @@ const Exams = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {allData.length < 8 &&
+                countRow
+                  .slice(0, countRow.length - allData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`S${info}`} className="row-data">
+                        <td
+                          className=""
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0px",
+                          }}
+                        >
+                          <IoFilterOutline
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              opacity: "0.5",
+                              display: "none",
+                            }}
+                          />
+                          <div className="subject-title">
+                            <h3 style={{ opacity: "0" }}>Sciences sociales</h3>
+                            <p style={{ opacity: "0" }}>
+                              Fonctions exponentiel
+                            </p>
+                          </div>
+                        </td>
+                        <td className="term-class inner-data">
+                          <h3></h3>
+                          <p></p>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{
+                            fontSize: "14px",
+                          }}
+                          className="inner-data"
+                        >
+                          <span
+                            style={{
+                              width: "56px",
+                              textAlign: "center",
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "2px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                backgroundColor: "transparent",
+                                padding: "1px 5px",
+                                borderRadius: "10px",
+                                color: "black",
+                                marginBottom: "1px",
+                                opacity: "0",
+                              }}
+                            >
+                              13h00
+                            </span>{" "}
+                            <span
+                              style={{
+                                backgroundColor: "orange",
+                                padding: "1px 5px",
+                                borderRadius: "10px",
+                                color: "white",
+                                opacity: "0",
+                              }}
+                            >
+                              13h00
+                            </span>
+                          </span>
+                        </td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={allData.length} />
         </div>
       </div>

@@ -45,6 +45,8 @@ const columns = [
 ];
 
 const Classes = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   const renderRow = (item: Class) => {
     return (
       <tr key={item.id} className="row-data">
@@ -126,6 +128,51 @@ const Classes = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={classesData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {classesData.length < 10 &&
+                countRow
+                  .slice(0, countRow.length - classesData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`S${info}`} className="row-data">
+                        <td className="icon-name" style={{ opacity: "0" }}>
+                          <IoFilterOutline className="icon" />
+                          4B
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={classesData.length} />
         </div>
       </div>

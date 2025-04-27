@@ -115,6 +115,20 @@
                 }
             }
         }
+
+        // 
+        .count-row{
+
+            tbody{
+        
+                tr{
+                    &:nth-child(1){
+                        border-top-color: transparent;
+                    }
+                }
+            }
+        }
+        
     }
 
 }
