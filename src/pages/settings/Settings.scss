@@ -9,6 +9,293 @@
         flex-flow: column;
         background-color: #F7F8FA;
 
+        .settings{
+            padding: 16px;
+
+            .title-container{
+                padding: 16px;
+                background-color: white;
+                border-radius: 10px;
+                .title{
+                    font-size: 25px;
+                }
+            }
+
+            .general{
+                margin-top: 10px;
+                
+                .top{
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    span{
+                        background-color: white;
+                        padding: 10px;
+                        border-radius: 50%;
+                        font-weight: 600;
+                    }
+
+                    h1{
+                        font-size: 25px;
+                    }
+                }
+
+                .bottom{
+                    margin-top: 20px;
+                    width: 100%;
+                    display: flex;
+                    background-color: white;
+                    padding: 16px;
+                    border-radius: 10px;
+
+                    .column{
+                        width: 50%;
+
+                        h4{
+                            margin-bottom: 10px;
+                        }
+
+                        .language-container,.year-container{
+                            display: flex;
+                            flex-flow: row;
+                            gap: 20px;
+
+                            .row{
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                min-height: 38px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .school-info{
+                margin-top: 10px;
+
+                .top{
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    span{
+                        background-color: white;
+                        padding: 10px;
+                        border-radius: 50%;
+                        font-weight: 600;
+                    }
+
+                    h1{
+                        font-size: 25px;
+                    }
+
+                }
+
+                .bottom{
+                    margin-top: 20px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: white;
+                    padding: 16px;
+                    border-radius: 10px;
+
+
+                    .row{
+                        display: flex;
+                        align-items: center;
+                        gap: 25px;
+                        width: 40%;
+
+                        &.first{
+                            .image-container{
+                                width: 75px;
+                                height: 75px;
+    
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    border-radius: 50%;
+                                }
+                            }
+    
+                        }
+
+                        .inputs-container{
+                            width: calc(100% - 100px);
+                            display: flex;
+                            flex-flow: column;
+                            gap: 11px;
+
+                            input{
+                                padding: 8px 10px;
+                                background-color: transparent;
+                                outline: none;
+                                border: 1px solid #cccccc;
+                                border-radius: 4px;
+                            }
+                        }
+
+                    }
+
+                    .second,.third{
+                        display: flex;
+                        flex-flow: column;
+                        gap: 11px;
+                        width: 27%;
+
+                        input{
+                            padding: 8px 10px;
+                            width: 100%;
+                            background-color: transparent;
+                            outline: none;
+                            border: 1px solid #cccccc;
+                            border-radius: 4px;
+
+                        }
+
+                    }
+                }
+
+            }
+
+            .users-roles{
+                margin-top: 10px;
+
+                .top{
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    span{
+                        background-color: white;
+                        padding: 10px;
+                        border-radius: 50%;
+                        font-weight: 600;
+                    }
+
+                    h1{
+                        font-size: 25px;
+                    }
+
+                }
+
+                .bottom{
+                    margin-top: 20px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: white;
+                    padding: 16px;
+                    border-radius: 10px;
+
+                    .column{
+                        width: 50%;
+
+                        h4{
+                            margin-bottom: 10px;
+                        }
+
+                        .roles-container{
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+
+                            .first, .second{
+
+                                .row{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    min-height: 38px;                                        
+                                }
+                            }
+                        }
+
+                        .invitations-container{
+                            height: 76px;
+                            width: 100%;
+                            display: flex;
+                            flex-flow: column;
+                            justify-content: center;
+                            gap: 10px;
+
+                            input{
+                                padding: 8px 10px;
+                                background-color: transparent;
+                                outline: none;
+                                border: 1px solid #cccccc;
+                                border-radius: 4px;    
+                            }
+
+                            button{
+                                outline: none;
+                                border: 2px solid #040558;
+                                background-color: #040558;
+                                color: white;
+                                border-radius: 4px;
+                                padding: 8px 10px;
+                                cursor: pointer;
+                                
+                            }
+                        }
+                    }
+                    
+                }
+
+            }
+
+            .notifications{
+                margin-top: 10px;
+
+                .top{
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    span{
+                        background-color: white;
+                        padding: 10px;
+                        border-radius: 50%;
+                        font-weight: 600;
+                    }
+
+                    h1{
+                        font-size: 25px;
+                    }
+
+                }
+
+                .bottom{
+                    margin-top: 20px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: white;
+                    padding: 16px;
+                    border-radius: 10px;
+
+                    .column{
+
+                        h4{
+                            margin-bottom: 10px;
+                        }
+
+                        .row{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            min-height: 38px;
+                        }
+                    }
+                }
+
+            }
+        }
+
     }
 
 }
