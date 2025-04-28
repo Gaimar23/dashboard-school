@@ -1,0 +1,212 @@
+.payment-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+    .sub-container{
+        // min-height: 100vh;
+        padding: 32px 70px;
+        margin-top: -5px;
+        max-width: 1366px;
+        width: 80%;
+    
+        .top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #F7F8FA;
+            border-radius: 10px;
+            padding: 5px 0;
+
+            .btn-container{
+                width: 25%;
+                place-items: center;
+
+                .back-btn{
+                    border: none;
+                    background-color: #040558;
+                    padding: 10px 40px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    color: white;
+                    font-weight: 600;
+                    outline: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+    
+                }    
+            }
+    
+            .logo-school-name-moto{
+                display: flex;
+                align-items: center;
+                gap: 15px;
+    
+                .logo-container{
+                    width: 80px;
+                    height: 80px;
+    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+    
+                .school-name{
+                    text-align: right;
+                    h1{
+                        color: #040558;
+                        font-size: 25px;
+                    }
+
+                    p{
+                        font-size: 14px;
+                    }
+                }
+            }
+    
+            .school-details{
+                display: flex;
+                flex-direction: column;
+                width: 25%;
+                font-size: 14px;
+            }
+        }
+
+        form{
+            padding: 0 50px;
+        }
+
+        .bottom{
+            width: 100%;
+            background-color: #F7F8FA;
+            border-radius: 10px;
+            padding-bottom: 8px;
+
+            .title{
+                // background-color: #040558;
+                background-color: transparent;
+                display: block;
+                padding: 10px 12px;
+                margin-top: 35px;
+                color: white;
+                text-align: center;
+                border-radius: 6px 6px 0 0;
+                font-size: 20px;
+                font-weight: 600;
+                position: relative;
+
+                .icon{
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .pictures01{
+                    position: absolute;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        border: 2px solid white;
+                        border-radius: 50%;
+
+                        &:nth-child(2){
+                            margin-left: -5px;
+                        }
+                        &:nth-child(3){
+                            margin-left: -5px;
+                        }
+                    }
+                }
+                .pictures{
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        border: 2px solid white;
+                        border-radius: 50%;
+
+                        &:nth-child(2){
+                            margin-left: -5px;
+                        }
+                        &:nth-child(3){
+                            margin-left: -5px;
+                        }
+                    }
+                }
+            }
+
+            .inputs-container{
+
+                margin-top: 32px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .row{
+                    display: flex;
+                    align-items: center;
+    
+                    label{
+                        width: 150px;
+                        font-weight: 600;
+                    }
+
+                    input, .css-b62m3t-container{
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    input{
+                        padding: 8px;
+                        border-radius: 4px;
+                        border: 1px solid #ccc;
+                        font-size: 16px;
+                        // outline: 2px solid #2684FF;
+                        outline: none;
+                    }
+                }
+            }
+
+            .submit-container{
+                width: 50%;
+                text-align: center;
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+
+                button{
+                    outline: none;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: #040558;
+                    color: white;
+                    padding: 10px 50px;
+                    cursor: pointer;
+                    font-size: 15px;
+                }
+            }
+        }
+    
+    }
+
+}

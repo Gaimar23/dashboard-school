@@ -102,12 +102,12 @@ const menuItems = [
         href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      // {
-      //   icon: <BiCategory className="menu-icon" />,
-      //   label: "Events",
-      //   href: "/list/events",
-      //   visible: ["admin", "teacher", "student", "parent"],
-      // },
+      {
+        icon: <BiCategory className="menu-icon" />,
+        label: "Accounting",
+        href: "/accounting",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
     ],
   },
   {

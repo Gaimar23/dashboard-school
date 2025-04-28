@@ -100,6 +100,8 @@ const allData = [
 ];
 
 const AnnouncementsList = () => {
+  const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
   const renderRow = (item: Announcement) => {
     return (
       <tr key={item._id} className="row-data">
@@ -206,6 +208,73 @@ const AnnouncementsList = () => {
             </div>
           </div>
           <Table columns={columns} renderRow={renderRow} data={allData} />
+
+          {/* add rows */}
+          <table
+            style={{ width: "100%", borderCollapse: "collapse" }}
+            className="count-row"
+          >
+            <tbody>
+              {allData.length < 8 &&
+                countRow
+                  .slice(0, countRow.length - allData.length)
+                  .map((info) => {
+                    return (
+                      <tr key={`A${info}`} className="row-data">
+                        <td className="icon-title-container">
+                          <BsCalendar3
+                            style={{
+                              width: "12px",
+                              height: "12px",
+                              opacity: "0",
+                            }}
+                          />
+                          <div className="icon-title">
+                            <p style={{ opacity: "0" }}>Retour de vacance</p>
+                            <span style={{ opacity: "0" }}>
+                              Parent,teacher,student
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="date-time inner-data"
+                        >
+                          <h3 style={{ opacity: "0" }}>28/04/2025</h3>
+                          <p style={{ opacity: "0" }}>15:36:51</p>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="date-time inner-data"
+                        >
+                          <h3></h3>
+                          <p></p>
+                        </td>
+                        <td
+                          style={{ fontSize: "14px" }}
+                          className="inner-data"
+                        ></td>
+                        <td>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
+                              gap: "10px",
+                            }}
+                          ></div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+          {/*  */}
+
           <Pagination itemsLength={allData.length} />
         </div>
       </div>
