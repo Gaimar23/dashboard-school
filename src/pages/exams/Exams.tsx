@@ -9,6 +9,7 @@ import { IoFilterOutline } from "react-icons/io5";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useEffect } from "react";
 
 type Exam = {
   _id: string;
@@ -141,6 +142,54 @@ const allData = [
 
 const Exams = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  useEffect(() => {
+    handleRowsStyle();
+  }, []);
+
+  const handleRowsStyle = () => {
+    if (allData.length % 2 === 0) {
+      const evenRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(even)"
+      );
+      evenRows.forEach((row) => {
+        if (row.classList.contains("odd")) {
+          row.classList.remove("odd");
+        }
+        row.classList.add("even");
+      });
+      //
+      const oddRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(odd)"
+      );
+      oddRows.forEach((row) => {
+        if (row.classList.contains("even")) {
+          row.classList.remove("even");
+        }
+        row.classList.add("odd");
+      });
+    } else {
+      const evenRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(even)"
+      );
+      evenRows.forEach((row) => {
+        if (row.classList.contains("even")) {
+          row.classList.remove("even");
+        }
+        row.classList.add("odd");
+      });
+      //
+      const oddRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(odd)"
+      );
+      oddRows.forEach((row) => {
+        if (row.classList.contains("odd")) {
+          row.classList.remove("odd");
+        }
+        row.classList.add("even");
+      });
+    }
+  };
 
   const renderRow = (item: Exam) => {
     return (
@@ -293,6 +342,7 @@ const Exams = () => {
           <table
             style={{ width: "100%", borderCollapse: "collapse" }}
             className="count-row"
+            id="count-row"
           >
             <tbody>
               {allData.length < 8 &&

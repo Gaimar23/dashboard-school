@@ -91,6 +91,14 @@
                     background-color: #f8fafc;
                 }
 
+                &.even{
+                    background-color: #f8fafc;
+                }
+
+                &.odd{
+                    background-color: transparent;
+                }
+
                 .teacher-date{
                     padding: 16px;
                     display: flex;

@@ -80,6 +80,15 @@
                     background-color: #f8fafc;
                 }
 
+                &.even{
+                    background-color: #f8fafc;
+                }
+
+                &.odd{
+                    background-color: transparent;
+                }
+
+
                 .image-name-email{
                     display: flex;
                     align-items: center;

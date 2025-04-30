@@ -11,6 +11,7 @@ import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useEffect } from "react";
 
 type Announcement = {
   _id: string;
@@ -97,10 +98,71 @@ const allData = [
     created_by: "Daamo",
     created_at: new Date(),
   },
+  {
+    _id: "okdkd9301dmp",
+    tenant_id: "HKD792793?",
+    title: "Nouvel Visite du musée",
+    description: "La rentrée est prévu pour le 10/09/2039",
+    audience_type: ["Parent", "teacher", "student"], // "all, teacher,parent,student"
+    start_date: new Date(),
+    end_date: new Date(),
+    start_at: new Date(),
+    end_at: new Date(),
+    created_by: "Daamo",
+    created_at: new Date(),
+  },
 ];
 
 const AnnouncementsList = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  useEffect(() => {
+    handleRowsStyle();
+  }, []);
+
+  const handleRowsStyle = () => {
+    if (allData.length % 2 === 0) {
+      const evenRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(even)"
+      );
+      evenRows.forEach((row) => {
+        if (row.classList.contains("odd")) {
+          row.classList.remove("odd");
+        }
+        row.classList.add("even");
+      });
+      //
+      const oddRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(odd)"
+      );
+      oddRows.forEach((row) => {
+        if (row.classList.contains("even")) {
+          row.classList.remove("even");
+        }
+        row.classList.add("odd");
+      });
+    } else {
+      const evenRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(even)"
+      );
+      evenRows.forEach((row) => {
+        if (row.classList.contains("even")) {
+          row.classList.remove("even");
+        }
+        row.classList.add("odd");
+      });
+      //
+      const oddRows = document.querySelectorAll(
+        "#count-row .row-data:nth-child(odd)"
+      );
+      oddRows.forEach((row) => {
+        if (row.classList.contains("odd")) {
+          row.classList.remove("odd");
+        }
+        row.classList.add("even");
+      });
+    }
+  };
 
   const renderRow = (item: Announcement) => {
     return (
@@ -213,6 +275,7 @@ const AnnouncementsList = () => {
           <table
             style={{ width: "100%", borderCollapse: "collapse" }}
             className="count-row"
+            id="count-row"
           >
             <tbody>
               {allData.length < 8 &&

@@ -79,6 +79,14 @@
                     background-color: #f8fafc;
                 }
 
+                &.even{
+                    background-color: #f8fafc;
+                }
+
+                &.odd{
+                    background-color: transparent;
+                }
+
                 .icon-title-container{
                     display: flex;
                     align-items: center;

@@ -81,6 +81,15 @@
                     background-color: #f8fafc;
                 }
 
+                &.even{
+                    background-color: #f8fafc;
+                }
+
+                &.odd{
+                    background-color: transparent;
+                }
+
+
                 .subject-title{
                     padding: 16px;
                     display: flex;
