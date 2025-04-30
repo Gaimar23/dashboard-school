@@ -19,6 +19,7 @@ import Profile from "./pages/profile/Profile";
 import Settings from "./pages/settings/Settings";
 import Accounting from "./pages/accounting/Accounting";
 import Payment from "./pages/payment/Payment";
+import PaymentsList from "./pages/paymentsList/PaymentsList";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
         <Route path="/student" element={<Student />} />
         <Route path="/accounting" element={<Accounting />} />
         <Route path="/accounting/students/payments" element={<Payment />} />
+        <Route
+          path="/accounting/students/payments/list"
+          element={<PaymentsList />}
+        />
         <Route path="/list/teachers" element={<Teachers />} />
         <Route path="/list/teachers/:teacherId" element={<SingleTeacher />} />
         <Route path="/list/students" element={<Students />} />

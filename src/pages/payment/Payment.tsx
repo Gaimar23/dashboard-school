@@ -1,8 +1,9 @@
 import "./Payment.scss";
 import Logo from "../../assets/images/logo_.jpg";
 import Select from "react-select";
-import { FaPeopleGroup } from "react-icons/fa6";
+// import { FaPeopleGroup } from "react-icons/fa6";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const genre = [
@@ -32,12 +33,14 @@ const Payment = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="payment-container">
       <div className="sub-container">
         <div className="top">
           <div className="btn-container">
-            <button className="back-btn">
+            <button className="back-btn" onClick={() => navigate(-1)}>
               <FaArrowAltCircleLeft className="icon" />
               <span>Retour</span>
             </button>

@@ -1,0 +1,238 @@
+.payments-list-container{
+    min-height: 100vh;
+    display: flex;
+
+    .right{
+        width: 86%;
+        // overflow: scroll;
+        display: flex;flex-flow: column;
+        background-color: #F7F8FA;
+
+        .payments-list{
+            padding: 16px;
+            margin: 16px;
+            margin-top: -5px;
+            background-color: white;
+            border-radius: 10px;
+            flex: 1;
+
+            .sub-container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-size: 18px;
+                    font-weight: 600;
+                    display: none;
+                }
+
+                .up{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 16px;
+                    width: 100%;
+
+                    .actions{
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        // align-self: flex-end;
+
+                        button{
+                            width: 32px;
+                            height: 32px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: orange;
+                            border-radius: 50%;
+                            outline: none;
+                            border: 2px solid orange;
+                            cursor: pointer;
+
+                            .icon{
+                                width: 16px;
+                                height: 16px;
+                                color: white;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            .table-data{
+                display: none;
+            }
+
+            .table-data-second{
+                display: none;
+            }
+
+            .row-data{
+                border: 1px solid #e5e7eb;
+                border-left: none;
+                border-right: none;
+
+                &:nth-child(even){
+                    background-color: #f8fafc;
+                }
+
+                &.even{
+                    background-color: #f8fafc;
+                }
+
+                &.odd{
+                    background-color: transparent;
+                }
+
+
+                .number-date{
+                    padding: 16px;
+                    display: flex;
+                    flex-direction: column;
+
+                    h3{
+                        font-size: 14px;
+                        font-weight: 800;
+                    }
+
+                    p{
+                        font-size: 12px;
+                        color: black;
+                        opacity: 0.7;
+                    }
+
+                }
+
+                .inner-data{
+                    display: none;
+                }
+            }
+
+        }
+
+        .count-row{
+
+            tbody{
+
+                tr{
+                    &:nth-child(1){
+                        border-top-color: transparent;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .payments-list-container{
+    
+        .right{
+            width: 92%;
+
+            .payments-list{
+                
+                .sub-container{
+    
+                    h1{
+                        display: block;
+                    }
+
+                    .up{
+                        width: auto;
+                        flex-direction: row;
+                    }
+                }
+
+                // .table-data{
+                //     display: table-cell;
+                // }
+
+                // .row-data{
+    
+                //     .inner-data{
+                //         display: table-cell;
+                //     }
+    
+                // }
+    
+    
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 900px){
+    .payments-list-container{
+    
+        .right{
+            width: 92%;
+
+            .payments-list{
+                
+                .sub-container{
+    
+                    h1{
+                        display: block;
+                    }
+
+                    .up{
+                        width: auto;
+                        // flex-direction: row;
+                    }
+                }
+
+                .table-data{
+                    display: table-cell;
+                }
+
+                .row-data{
+    
+                    .inner-data{
+                        display: table-cell;
+                    }
+    
+                }
+    
+    
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1024px){
+    .payments-list-container{
+    
+        .right{
+            width: 84%;
+
+            .payments-list{
+
+                .table-data-second{
+                    display: table-cell;
+                }
+
+            }
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1280px){
+    .payments-list-container{
+    
+        .right{
+            width: 86%;
+        }
+    }
+    
+}
