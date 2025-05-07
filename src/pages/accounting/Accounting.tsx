@@ -8,13 +8,15 @@ import { CiBoxList } from "react-icons/ci";
 import { FaSliders } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import AddCashIn from "../../components/addCashIn/AddCashIn";
+import { useState } from "react";
 
 const Accounting = () => {
   const navigate = useNavigate();
+  const [showAddCashIn, setShowAddCashIn] = useState(false);
   return (
     <div className="accounting-container">
       <Menu />
-      <AddCashIn />
+      {showAddCashIn && <AddCashIn setShowAddCashIn={setShowAddCashIn} />}
       <div className="right">
         <Navbar />
         <div className="sub-container">
@@ -48,7 +50,11 @@ const Accounting = () => {
                     <span>Liste des Paiements</span>
                   </div>
                 </button>
-                <button className="slide-button">
+                <button
+                  className="slide-button"
+                  type="button"
+                  onClick={() => setShowAddCashIn(true)}
+                >
                   <div className="icon-title">
                     <BsCashCoin className="icon" />
                     <span>Encaissement</span>
