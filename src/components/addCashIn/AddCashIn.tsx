@@ -219,7 +219,11 @@ const AddCashIn: React.FC<AddCashInProps> = ({ setShowAddCashIn }) => {
               {movements.length > 0 ? (
                 movements.map((movement, index) => {
                   return (
-                    <div className="list-data" key={index}>
+                    <div
+                      className="list-data"
+                      key={index}
+                      onClick={() => getRowIndex(index)}
+                    >
                       <b>{movement.rang}</b>
                       <b>{movement.label}</b>
                       <b>{movement.amount}</b>

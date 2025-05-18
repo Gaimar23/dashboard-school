@@ -9,7 +9,8 @@ import Pagination from "../../components/pagination/Pagination";
 import { subjectsData } from "../../data/data";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddSubject from "../../components/formModal/addSubject/AddSubject";
 
 type Subject = {
   id: string;
@@ -35,6 +36,7 @@ const columns = [
 
 const Subjects = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [showAddSubject, setShowAddSubject] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -145,13 +147,14 @@ const Subjects = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddSubject && <AddSubject setShowAddSubject={setShowAddSubject} />}
         <div className="list-subjects">
           <div className="sub-container">
             <h1>Subjects</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddSubject(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>

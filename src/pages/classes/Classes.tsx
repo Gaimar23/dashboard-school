@@ -9,7 +9,8 @@ import Pagination from "../../components/pagination/Pagination";
 import { classesData } from "../../data/data";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddClass from "../../components/formModal/addClass/AddClass";
 
 type Class = {
   id: string;
@@ -47,6 +48,7 @@ const columns = [
 
 const Classes = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [showAddClass, setShowAddClass] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -160,13 +162,14 @@ const Classes = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddClass && <AddClass setShowAddClass={setShowAddClass} />}
         <div className="list-classes">
           <div className="sub-container">
             <h1>Classes</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddClass(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>

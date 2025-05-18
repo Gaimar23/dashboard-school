@@ -9,7 +9,8 @@ import { IoFilterOutline } from "react-icons/io5";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddExam from "../../components/formModal/addExam/AddExam";
 
 type Exam = {
   _id: string;
@@ -142,6 +143,7 @@ const allData = [
 
 const Exams = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [showAddExam, setShowAddExam] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -320,13 +322,14 @@ const Exams = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddExam && <AddExam setShowAddExam={setShowAddExam} />}
         <div className="list-exams">
           <div className="sub-container">
             <h1>Exams</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddExam(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>
