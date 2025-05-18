@@ -1,0 +1,150 @@
+.add-student-attendance-container{
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.267);
+
+    .form-student-attendance{
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+
+        .head-form{
+            position: relative;
+
+            .first-row{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                h3{
+                    font-size: 20px;
+                    opacity: 0.5;
+                }
+
+                .icon-title{
+                    padding: 4px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+        
+                    .icon{
+                        height: 60px;
+                        width: 60px;
+                        border: 5px solid black;
+                        border-radius: 50%;
+                        padding: 10px;
+                        border-top-color: #F7F8FA;
+                        border-left-color: #F7F8FA;
+                        border-right-color: transparent;
+                        border-bottom-color: #F7F8FA;
+        
+                        border-left: 10px;
+                    }
+                }
+        
+            }
+
+            .close{
+                background-color: orange;
+                height: 25px;
+                width: 25px;
+                border-radius: 4px;
+                padding: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: white;
+            }
+
+        }
+
+        .row{
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            width: 100%;
+
+            &:nth-child(2){
+                margin-top: 20px;
+            }
+
+            &:nth-child(3){
+                margin: 7px auto;
+            }
+
+            input{
+                width: 100%;
+                padding: 9px 10px;
+                outline: none;
+                border: 1px solid rgba(0, 0, 0, 0.349);
+                border-radius: 5px;
+                font-size: 14px;
+            }
+
+            label{
+                font-size: 14px;
+                color: gray;
+                font-weight: 300;
+            }  
+
+            &.two{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row;
+
+                .sub-row{
+                    width: 48%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+
+                    input{
+                        width: 100%;
+                        padding: 9px 10px;
+                        outline: none;
+                        border: 1px solid rgba(0, 0, 0, 0.349);
+                        border-radius: 5px;
+                        font-size: 14px;
+                    }
+        
+                    label{
+                        font-size: 14px;
+                        color: gray;
+                        font-weight: 300;
+                    }  
+        
+                }
+            }
+
+        }
+
+        .btn-student-attendance{
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #040558;
+            outline: none;
+            cursor: pointer;
+            padding: 8px 0;
+            background-color: #040558;
+            border-radius: 5px;
+            color: rgba(255, 255, 255, 0.808);
+            font-weight: 600;
+        }
+
+    }
+}

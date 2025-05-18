@@ -11,7 +11,8 @@ import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddAnnouncement from "../../components/formModal/addAnnouncement/AddAnnouncement";
 
 type Announcement = {
   _id: string;
@@ -115,6 +116,7 @@ const allData = [
 
 const AnnouncementsList = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [showAddAnnouncement, setShowAddAnnouncement] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -254,13 +256,16 @@ const AnnouncementsList = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddAnnouncement && (
+          <AddAnnouncement setShowAddAnnouncement={setShowAddAnnouncement} />
+        )}
         <div className="list-announcements">
           <div className="sub-container">
             <h1>Announcements</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddAnnouncement(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>

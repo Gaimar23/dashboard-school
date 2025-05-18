@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import AddTeacherAttendance from "../../components/formModal/addTeacherAttendance/AddTeacherAttendance";
+import AddStudentAttendance from "../../components/formModal/addStudentAttendance/AddStudentAttendance";
 
 type TeacherAttendance = {
   _id: string;
@@ -195,7 +197,10 @@ const studentsData = [
 const Attendance = () => {
   const [showTeachers, setShowTeachers] = useState<boolean>(true);
   const [showStudents, setShowStudents] = useState<boolean>(false);
-
+  const [showAddTeacherAttendance, setShowAddTeacherAttendance] =
+    useState(false);
+  const [showAddStudentAttendance, setShowAddStudentAttendance] =
+    useState(false);
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
 
   useEffect(() => {
@@ -445,18 +450,36 @@ const Attendance = () => {
     }
   };
 
+  const handleShowAttendance = () => {
+    if (showTeachers) {
+      setShowAddTeacherAttendance(true);
+    } else {
+      setShowAddStudentAttendance(true);
+    }
+  };
+
   return (
     <div className="list-attendance-container">
       <Menu />
       <div className="right">
         <Navbar />
+        {showTeachers && showAddTeacherAttendance && (
+          <AddTeacherAttendance
+            setShowAddTeacherAttendance={setShowAddTeacherAttendance}
+          />
+        )}
+        {showStudents && showAddStudentAttendance && (
+          <AddStudentAttendance
+            setShowAddStudentAttendance={setShowAddStudentAttendance}
+          />
+        )}
         <div className="list-attendance">
           <div className="sub-container">
             <h1>Présence</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={handleShowAttendance}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>
