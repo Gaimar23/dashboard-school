@@ -8,7 +8,8 @@ import Pagination from "../../components/pagination/Pagination";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import TableSearch from "../../components/tableSearch/TableSearch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddAssignment from "../../components/formModal/addAssignment/AddAssignment";
 
 type assignmentData = {
   _id: string;
@@ -116,6 +117,7 @@ const allData = [
 
 const Assignments = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [showAddAssignment, setShowAddAssignment] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -259,13 +261,16 @@ const Assignments = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddAssignment && (
+          <AddAssignment setShowAddAssignment={setShowAddAssignment} />
+        )}
         <div className="list-assignments">
           <div className="sub-container">
             <h1>Assignments</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddAssignment(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>

@@ -1,4 +1,4 @@
-.add-announcement-container{
+.add-assignment-container{
     z-index: 200;
     position: fixed;
     top: 0;
@@ -7,7 +7,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.267);
 
-    .form-announcement{
+    .form-assignment{
         width: 50%;
         position: absolute;
         top: 50%;
@@ -79,21 +79,6 @@
             gap: 3px;
             margin-bottom: 7px;
 
-            &:nth-child(2){
-                margin-top: 10px;
-            }
-
-            .sub-row{
-                display: flex;
-                flex-direction: column;
-                gap: 3px;
-
-
-                &:nth-child(2){
-                    margin-top: 5px;
-                }
-            }
-
             input{
                 width: 100%;
                 padding: 9px 10px;
@@ -119,11 +104,24 @@
                 font-size: 14px;
     
             }
-    
+
+            .sub-row{
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                width: 48%;
+
+            }
+
+            &.two{
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+            }
 
         }
 
-        .btn-announcement{
+        .btn-assignment{
             width: 100%;
             margin-top: 20px;
             border: 1px solid #040558;
@@ -135,6 +133,7 @@
             color: rgba(255, 255, 255, 0.808);
             font-weight: 600;
         }
+
 
     }
 }
