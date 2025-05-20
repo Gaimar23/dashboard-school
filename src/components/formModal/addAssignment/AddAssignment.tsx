@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddAssignment.scss";
 import { RxCross1 } from "react-icons/rx";
 import Select from "react-select";
+import axios from "axios";
 
 interface AddAssignmentProps {
   setShowAddAssignment: React.Dispatch<React.SetStateAction<boolean>>;
@@ -45,18 +46,33 @@ const AddAssignment: React.FC<AddAssignmentProps> = ({
     },
   ];
 
-  const [file, setFile] = useState<File | null>(null);
+  const [pdf, setPdf] = useState<File | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
 
-    if (selectedFile && selectedFile.type === "application/pdf") {
-      console.log("selectedFile:", selectedFile);
-      setFile(selectedFile);
-    } else {
-      setFile(null);
+    const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+    if (!selectedFile) return;
+
+    if (selectedFile.type !== "application/pdf") {
       console.log("Please select a pdf file");
+      return;
     }
+
+    if (selectedFile.size > MAX_FILE_SIZE) {
+      console.log("File size should be less than 5MB");
+      return;
+    }
+
+    setPdf(selectedFile);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    //
+    try {
+    } catch (err) {}
   };
 
   return (
@@ -97,7 +113,7 @@ const AddAssignment: React.FC<AddAssignmentProps> = ({
 
         <div className="row">
           <label htmlFor="">Description</label>
-          <textarea name="" rows={3} placeholder=""></textarea>
+          <textarea name="" rows={2} placeholder=""></textarea>
         </div>
 
         <div className="row">
@@ -141,6 +157,7 @@ const AddAssignment: React.FC<AddAssignmentProps> = ({
             type="file"
             name=""
             id="pdf-file"
+            accept="application/pdf"
             onChange={handleFileChange}
           />
         </div>

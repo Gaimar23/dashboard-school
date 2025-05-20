@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./AddSubject.scss";
 import { RxCross1 } from "react-icons/rx";
-import Select from "react-select";
+import Select, { MultiValue } from "react-select";
+import axios from "axios";
+import { SchoolContext } from "../../../context/SchoolContext";
 
 interface AddSubjectProps {
   setShowAddSubject: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface SubjectInput {
+  name: string;
+  teachers: string[];
+}
+
+interface TeacherOption {
+  value: string;
+  label: string;
 }
 
 const AddSubject: React.FC<AddSubjectProps> = ({ setShowAddSubject }) => {
@@ -43,9 +55,67 @@ const AddSubject: React.FC<AddSubjectProps> = ({ setShowAddSubject }) => {
     },
   ];
 
+  const [teacherOptions, setTeacherOptions] = useState<TeacherOption[]>([]);
+  const [formData, setFormData] = useState<SubjectInput>({
+    name: "",
+    teachers: [],
+  });
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+
+  const { url } = context;
+  //
+
+  useEffect(() => {
+    getAllTeachers();
+  }, []);
+
+  const getAllTeachers = async () => {
+    // const response = await axios.get(`${url}/api/teachers/get`);
+    // if (response.data.success) {
+    //   const options = response.data.data.map((teacher: any) => ({
+    //     value: teacher._id,
+    //     label: teacher.name,
+    //   }));
+
+    //   setTeacherOptions(options);
+    // } else {
+    //   console.log("Error");
+    // }
+
+    setTeacherOptions(options);
+  };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, name: e.target.value });
+  };
+
+  // const handleTeacherSelect = (selectedOptions: TeacherOption[] | null) => {
+  //   const selectedIds = selectedOptions
+  //     ? selectedOptions.map((opt) => opt.value)
+  //     : [];
+  //   setFormData((prev) => ({ ...prev, teachers: selectedIds }));
+  // };
+
+  const handleTeacherSelect = (selectedOptions: MultiValue<TeacherOption>) => {
+    const selectedIds = selectedOptions.map((opt) => opt.value);
+    setFormData((prev) => ({ ...prev, teachers: selectedIds }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    //
+    try {
+    } catch (err) {}
+  };
+
   return (
     <div className="add-subject-container">
-      <form className="form-subject">
+      <form className="form-subject" onSubmit={handleSubmit}>
         <div className="head-form">
           <div className="first-row">
             <div className="icon-title">
@@ -62,13 +132,14 @@ const AddSubject: React.FC<AddSubjectProps> = ({ setShowAddSubject }) => {
         <div className="row">
           <div className="input-container">
             <label htmlFor="">Subject</label>
-            <input type="text" />
+            <input type="text" name="name" onChange={handleNameChange} />
           </div>
           <div className="input-container">
             <label htmlFor="">Teachers</label>
             <Select
-              options={options}
+              options={teacherOptions}
               isMulti
+              onChange={handleTeacherSelect}
               styles={{
                 menuList: () => ({
                   maxHeight: "150px",
