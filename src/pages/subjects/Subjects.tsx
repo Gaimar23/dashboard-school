@@ -9,8 +9,10 @@ import Pagination from "../../components/pagination/Pagination";
 import { subjectsData } from "../../data/data";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddSubject from "../../components/formModal/addSubject/AddSubject";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type Subject = {
   id: string;
@@ -37,6 +39,15 @@ const columns = [
 const Subjects = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [showAddSubject, setShowAddSubject] = useState(false);
+  const [allSubjects, setAllSubjects] = useState<Subject[]>([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
@@ -142,12 +153,24 @@ const Subjects = () => {
     );
   };
 
+  const getAllSubjects = async () => {
+    const response = await axios.get(`${url}/api/subjects/get`);
+    if (response.data.success) {
+      setAllSubjects(response.data.data);
+    }
+  };
+
   return (
     <div className="list-subjects-container">
       <Menu />
       <div className="right">
         <Navbar />
-        {showAddSubject && <AddSubject setShowAddSubject={setShowAddSubject} />}
+        {showAddSubject && (
+          <AddSubject
+            setShowAddSubject={setShowAddSubject}
+            getAllSubjects={getAllSubjects}
+          />
+        )}
         <div className="list-subjects">
           <div className="sub-container">
             <h1>Subjects</h1>

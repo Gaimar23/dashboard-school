@@ -9,8 +9,10 @@ import { CgNotes } from "react-icons/cg";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddResult from "../../components/formModal/addResult/AddResult";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type Result = {
   _id: string;
@@ -151,6 +153,15 @@ const allData = [
 const Results = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
   const [showAddResult, setShowAddResult] = useState(false);
+  const [allResults, setAllResults] = useState<Result[]>([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
@@ -197,6 +208,13 @@ const Results = () => {
         }
         row.classList.add("even");
       });
+    }
+  };
+
+  const getAllResults = async () => {
+    const response = await axios.get(`${url}/api/classes/get`);
+    if (response.data.success) {
+      setAllResults(response.data.data);
     }
   };
 
@@ -270,7 +288,12 @@ const Results = () => {
       <Menu />
       <div className="right">
         <Navbar />
-        {showAddResult && <AddResult setShowAddResult={setShowAddResult} />}
+        {showAddResult && (
+          <AddResult
+            setShowAddResult={setShowAddResult}
+            getAllResults={getAllResults}
+          />
+        )}
         <div className="list-results">
           <div className="sub-container">
             <h1>Results</h1>

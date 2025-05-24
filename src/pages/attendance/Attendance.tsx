@@ -5,12 +5,14 @@ import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import Table from "../../components/table/Table";
 import TableSearch from "../../components/tableSearch/TableSearch";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import AddTeacherAttendance from "../../components/formModal/addTeacherAttendance/AddTeacherAttendance";
 import AddStudentAttendance from "../../components/formModal/addStudentAttendance/AddStudentAttendance";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type TeacherAttendance = {
   _id: string;
@@ -202,6 +204,21 @@ const Attendance = () => {
   const [showAddStudentAttendance, setShowAddStudentAttendance] =
     useState(false);
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [allTeacherAttendance, setAllTeacherAttendance] = useState<
+    TeacherAttendance[]
+  >([]);
+
+  const [allStudentAttendance, setAllStudentAttendance] = useState<
+    StudentAttendance[]
+  >([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
@@ -296,6 +313,20 @@ const Attendance = () => {
           row.classList.add("even");
         });
       }
+    }
+  };
+
+  const getAllTeacherAttendance = async () => {
+    const response = await axios.get(`${url}/api/attendanceTeacher/get`);
+    if (response.data.success) {
+      setAllTeacherAttendance(response.data.data);
+    }
+  };
+
+  const getAllStudentAttendance = async () => {
+    const response = await axios.get(`${url}/api/attendanceStudent/get`);
+    if (response.data.success) {
+      setAllStudentAttendance(response.data.data);
     }
   };
 
@@ -466,11 +497,13 @@ const Attendance = () => {
         {showTeachers && showAddTeacherAttendance && (
           <AddTeacherAttendance
             setShowAddTeacherAttendance={setShowAddTeacherAttendance}
+            getAllTeacherAttendance={getAllTeacherAttendance}
           />
         )}
         {showStudents && showAddStudentAttendance && (
           <AddStudentAttendance
             setShowAddStudentAttendance={setShowAddStudentAttendance}
+            getAllStudentAttendance={getAllStudentAttendance}
           />
         )}
         <div className="list-attendance">

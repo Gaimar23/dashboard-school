@@ -7,6 +7,7 @@ import { SchoolContext } from "../../../context/SchoolContext";
 
 interface AddSubjectProps {
   setShowAddSubject: React.Dispatch<React.SetStateAction<boolean>>;
+  getAllSubjects: () => void;
 }
 
 interface SubjectInput {
@@ -19,7 +20,10 @@ interface TeacherOption {
   label: string;
 }
 
-const AddSubject: React.FC<AddSubjectProps> = ({ setShowAddSubject }) => {
+const AddSubject: React.FC<AddSubjectProps> = ({
+  setShowAddSubject,
+  getAllSubjects,
+}) => {
   const options = [
     {
       value: "chocolate",
@@ -109,8 +113,22 @@ const AddSubject: React.FC<AddSubjectProps> = ({ setShowAddSubject }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     //
-    try {
-    } catch (err) {}
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // redirect the user
+    }
+
+    const response = await axios.post(`${url}/api/subjects/add`, formData);
+    if (response.data.success) {
+      console.log("Subject added");
+      getAllSubjects();
+      setFormData({
+        name: "",
+        teachers: [],
+      });
+    } else {
+      console.log("Error");
+    }
   };
 
   return (
