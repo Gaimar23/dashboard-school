@@ -112,23 +112,24 @@ const AddSubject: React.FC<AddSubjectProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("formData:", formData);
     //
     const token = localStorage.getItem("token");
     if (!token) {
       // redirect the user
     }
 
-    const response = await axios.post(`${url}/api/subjects/add`, formData);
-    if (response.data.success) {
-      console.log("Subject added");
-      getAllSubjects();
-      setFormData({
-        name: "",
-        teachers: [],
-      });
-    } else {
-      console.log("Error");
-    }
+    // const response = await axios.post(`${url}/api/subjects/add`, formData);
+    // if (response.data.success) {
+    //   console.log("Subject added");
+    //   getAllSubjects();
+    //   setFormData({
+    //     name: "",
+    //     teachers: [],
+    //   });
+    // } else {
+    //   console.log("Error");
+    // }
   };
 
   return (

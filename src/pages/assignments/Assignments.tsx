@@ -16,7 +16,7 @@ type assignmentData = {
   title: string;
   description: string;
   subject: string;
-  class: string;
+  class_: string;
   teacher: string;
   due_date: Date;
   assigned_date: Date;
@@ -67,7 +67,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Mathématique",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -80,7 +80,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Philosophie",
-    class: "5E",
+    class_: "5E",
     teacher: "Solamo",
     due_date: new Date(2025, 6, 3, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -93,7 +93,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Economie",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -106,7 +106,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Mathématique",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -180,7 +180,7 @@ const Assignments = () => {
             : item.description}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {item.class}
+          {item.class_}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
           {item.teacher}

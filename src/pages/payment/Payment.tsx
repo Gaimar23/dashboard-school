@@ -33,6 +33,17 @@ const Payment = () => {
     },
   ];
 
+  const students = [
+    {
+      value: "193",
+      label: "Foko fouading gaimard domanaou",
+    },
+    {
+      value: "194",
+      label: "Kengne Damonou Stéphane domanaou",
+    },
+  ];
+
   const navigate = useNavigate();
 
   return (
@@ -96,7 +107,7 @@ const Payment = () => {
               <div className="row">
                 <label htmlFor="">Nom d'élève</label>
                 <Select
-                  options={genre}
+                  options={students}
                   styles={{
                     menuList: () => ({
                       maxHeight: "150px",

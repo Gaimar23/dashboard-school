@@ -4,9 +4,11 @@ import TableSearch from "../../components/tableSearch/TableSearch";
 import "./PaymentsList.scss";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Table from "../../components/table/Table";
 import Pagination from "../../components/pagination/Pagination";
+import { useNavigate } from "react-router-dom";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type PaymentData = {
   _id: string;
@@ -87,9 +89,19 @@ const allData = [
 const PaymentsList = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
 
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
+
   useEffect(() => {
     handleRowsStyle();
   }, []);
+
+  const navigate = useNavigate();
 
   const handleRowsStyle = () => {
     if (allData.length % 2 === 0) {
@@ -214,7 +226,9 @@ const PaymentsList = () => {
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button
+                  onClick={() => navigate("/accounting/students/payments")}
+                >
                   <MdAddCircle className="icon" />
                 </button>
                 <button>
