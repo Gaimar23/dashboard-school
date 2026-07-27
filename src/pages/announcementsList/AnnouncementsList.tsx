@@ -11,8 +11,10 @@ import { TiDocumentDelete } from "react-icons/ti";
 import { SlEye } from "react-icons/sl";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddAnnouncement from "../../components/formModal/addAnnouncement/AddAnnouncement";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type Announcement = {
   _id: string;
@@ -117,6 +119,15 @@ const allData = [
 const AnnouncementsList = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
   const [showAddAnnouncement, setShowAddAnnouncement] = useState(false);
+  const [allAnnouncements, setAllAnnouncements] = useState<Announcement[]>([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
@@ -163,6 +174,13 @@ const AnnouncementsList = () => {
         }
         row.classList.add("even");
       });
+    }
+  };
+
+  const getAllAnnouncements = async () => {
+    const response = await axios.get(`${url}/api/announcements/get`);
+    if (response.data.success) {
+      setAllAnnouncements(response.data.data);
     }
   };
 
@@ -257,7 +275,10 @@ const AnnouncementsList = () => {
       <div className="right">
         <Navbar />
         {showAddAnnouncement && (
-          <AddAnnouncement setShowAddAnnouncement={setShowAddAnnouncement} />
+          <AddAnnouncement
+            setShowAddAnnouncement={setShowAddAnnouncement}
+            getAllAnnouncements={getAllAnnouncements}
+          />
         )}
         <div className="list-announcements">
           <div className="sub-container">

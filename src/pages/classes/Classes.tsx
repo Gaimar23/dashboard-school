@@ -9,10 +9,12 @@ import Pagination from "../../components/pagination/Pagination";
 import { classesData } from "../../data/data";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddClass from "../../components/formModal/addClass/AddClass";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
-type Class = {
+type Class_ = {
   id: string;
   name: string;
   capacity: number;
@@ -49,9 +51,19 @@ const columns = [
 const Classes = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const [showAddClass, setShowAddClass] = useState(false);
+  const [allClasses, setAllClasses] = useState<Class_[]>([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
+    // getAllClasses()
   }, []);
 
   const handleRowsStyle = () => {
@@ -98,7 +110,14 @@ const Classes = () => {
     }
   };
 
-  const renderRow = (item: Class) => {
+  const getAllClasses = async () => {
+    const response = await axios.get(`${url}/api/classes/get`);
+    if (response.data.success) {
+      setAllClasses(response.data.data);
+    }
+  };
+
+  const renderRow = (item: Class_) => {
     return (
       <tr key={item.id} className="row-data">
         <td className="icon-name">
@@ -162,7 +181,12 @@ const Classes = () => {
       <Menu />
       <div className="right">
         <Navbar />
-        {showAddClass && <AddClass setShowAddClass={setShowAddClass} />}
+        {showAddClass && (
+          <AddClass
+            setShowAddClass={setShowAddClass}
+            getAllClasses={getAllClasses}
+          />
+        )}
         <div className="list-classes">
           <div className="sub-container">
             <h1>Classes</h1>

@@ -81,7 +81,6 @@
 }
 
 
-
 @media screen and (min-width: 768px){
     .menu-container{
         width: 8%;
@@ -148,5 +147,11 @@
             }
         
         }
+    }
+}
+
+@media screen and (max-width: 475px){
+    .menu-container .sub-menu-container .link-container .link{
+        padding: 5px 0px; 
     }
 }

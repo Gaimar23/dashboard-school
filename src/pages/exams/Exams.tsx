@@ -9,8 +9,10 @@ import { IoFilterOutline } from "react-icons/io5";
 import TableSearch from "../../components/tableSearch/TableSearch";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AddExam from "../../components/formModal/addExam/AddExam";
+import axios from "axios";
+import { SchoolContext } from "../../context/SchoolContext";
 
 type Exam = {
   _id: string;
@@ -144,6 +146,15 @@ const allData = [
 const Exams = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
   const [showAddExam, setShowAddExam] = useState(false);
+  const [allExams, setAllExams] = useState<Exam[]>([]);
+
+  // Use of context
+  const context = useContext(SchoolContext);
+  if (!context) {
+    throw new Error("AddSuject must be inside a Provider");
+  }
+  const { url } = context;
+  //
 
   useEffect(() => {
     handleRowsStyle();
@@ -190,6 +201,13 @@ const Exams = () => {
         }
         row.classList.add("even");
       });
+    }
+  };
+
+  const getAllExams = async () => {
+    const response = await axios.get(`${url}/api/classes/get`);
+    if (response.data.success) {
+      setAllExams(response.data.data);
     }
   };
 
@@ -322,7 +340,9 @@ const Exams = () => {
       <Menu />
       <div className="right">
         <Navbar />
-        {showAddExam && <AddExam setShowAddExam={setShowAddExam} />}
+        {showAddExam && (
+          <AddExam setShowAddExam={setShowAddExam} getAllExams={getAllExams} />
+        )}
         <div className="list-exams">
           <div className="sub-container">
             <h1>Exams</h1>

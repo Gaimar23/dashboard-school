@@ -210,3 +210,65 @@
     }
 
 }
+
+@media screen and (max-width: 1120px){
+    .payment-container{
+
+        .sub-container{
+
+            .top{
+                flex-direction: column-reverse;
+                gap: 10px;
+
+                .school-details{
+                    display: none;
+                }
+            }
+
+            .bottom{
+
+                .inputs-container{
+
+                    .row{
+
+                        label{
+                            min-width: 110px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px){
+    .payment-container{
+
+        .sub-container{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 560px){
+    .payment-container{
+
+        .sub-container{
+            padding-left: 20px;
+            padding-right: 20px;
+
+            .bottom{
+                
+                form{
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px){
+    .payment-container .sub-container .top .logo-school-name-moto .school-name h1{
+        font-size: 21px;
+    }
+}

@@ -8,14 +8,15 @@ import Pagination from "../../components/pagination/Pagination";
 import { MdAddCircle } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import TableSearch from "../../components/tableSearch/TableSearch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import AddAssignment from "../../components/formModal/addAssignment/AddAssignment";
 
 type assignmentData = {
   _id: string;
   title: string;
   description: string;
   subject: string;
-  class: string;
+  class_: string;
   teacher: string;
   due_date: Date;
   assigned_date: Date;
@@ -66,7 +67,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Mathématique",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -79,7 +80,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Philosophie",
-    class: "5E",
+    class_: "5E",
     teacher: "Solamo",
     due_date: new Date(2025, 6, 3, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -92,7 +93,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Economie",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -105,7 +106,7 @@ const allData = [
     description:
       "Vous appuyant sur les connaissances acquises au travers du cours, vous devez traiter ",
     subject: "Mathématique",
-    class: "4A",
+    class_: "4A",
     teacher: "Mora Damien",
     due_date: new Date(2025, 5, 15, 0, 0),
     assigned_date: new Date(2025, 5, 15, 0, 0),
@@ -116,6 +117,7 @@ const allData = [
 
 const Assignments = () => {
   const countRow = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [showAddAssignment, setShowAddAssignment] = useState(false);
 
   useEffect(() => {
     handleRowsStyle();
@@ -178,7 +180,7 @@ const Assignments = () => {
             : item.description}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
-          {item.class}
+          {item.class_}
         </td>
         <td style={{ fontSize: "14px" }} className="inner-data">
           {item.teacher}
@@ -259,13 +261,16 @@ const Assignments = () => {
       <Menu />
       <div className="right">
         <Navbar />
+        {showAddAssignment && (
+          <AddAssignment setShowAddAssignment={setShowAddAssignment} />
+        )}
         <div className="list-assignments">
           <div className="sub-container">
             <h1>Assignments</h1>
             <div className="up">
               <TableSearch />
               <div className="actions">
-                <button>
+                <button onClick={() => setShowAddAssignment(true)}>
                   <MdAddCircle className="icon" />
                 </button>
                 <button>
